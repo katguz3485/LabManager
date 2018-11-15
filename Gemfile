@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) {|repo| "https://github.com/#{repo}.git"}
 
 ruby '2.5.1'
 
@@ -37,8 +37,12 @@ gem 'uglifier'
 gem 'redis', '~> 4.0'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %w(mri mingw x64_mingw)
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.7'
 end
+
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
@@ -61,6 +65,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'shoulda'
   gem 'shoulda-matchers', '~> 3.1'
+
 end
 
 group :production do
