@@ -1,0 +1,19 @@
+language: ruby
+rvm:
+- 2.5.1
+before_install:
+- gem install bundler
+before_script:
+- cp config/database.yml.ci config/database.yml
+- psql -c 'create database travis_ci_test;' -U postgres
+script:
+- bundle exec rails db:migrate RAILS_ENV=test
+- bundle exec rspec
+deploy:
+  provider: heroku
+  api_key:
+    secure: "RC1rC+ZbHwC5EsbsiDoRFnmTNnXCYcYM0fKs+13DbTGSMgRYFBCFYrEm6zf/uSuzGgcs7tFU7M9PfpW7oA4mVXIZCYjf22CIpgQ/ci+duIORsqh12yEwg3EYvC7UOe82oGJtKiMewhiA9AwA3r+ILn4KzPT0XGiCFCo5WzjmfawyzSrLgtxqj39sToBThkJjCmCXscW6jdmuHnZcYscpP2/LD3jjNTtzZeviXr3qpPYYk0P8Zp5KKJ6F5P8t4+6czViiFuYxCfoAEQKs70/eO2b2e9yQRgWGHJmbvNAPCmhDlEx9evNUbU6pqtc0Se8s0QiOH0X5zj8/y4RFo/wr8zJ3YVChMkDv+qL70xUkNpmtZ2Qq/R4X8Grk48eM8KrNLUmZyKX87l2chSIM9B3W4MxbhJsIO9ZEXdEUwvpatiKF3ihLxq55s9F2UEUo4n3j4XtltO9Q4OQbTRTWFNH68fNLdv1gG7FQHsRhs4mhIay1WwpFtEgGJlGd/I/bpnv9+zGq2x+iELl19IvqdZWlw9m2ZUO5kBwmkvXe4zaG6PEfYNvN4UHV2sYTFCb6W11kNbvzuTU2WGXHhMWWccBaw61OCNDiedliRc4jWLe3geUhHHJqGXfQqMNq4i9Qe+E/wesW9l6vsRVv+qxR8PnOircUl7I85YgQZrKnr60q83Q="
+  run: rake db:migrate
+  app: LabManager
+  on:
+    repo: katguz3485/LabManager
