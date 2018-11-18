@@ -1,0 +1,4 @@
+- resource_class.omniauth_providers.each do |provider|
+  = button_to omniauth_authorize_path(resource_name, provider), class: "btn btn--#{provider} oauth-button full-width push-down" do
+    %i{:class => "fa fa-#{provider} pr-1"}
+    = provider.to_s.titleize
