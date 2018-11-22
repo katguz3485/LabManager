@@ -1,19 +1,38 @@
-# frozen_string_literal: true
-
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+
+
   def facebook
-    @user = User.from_omniauth(request.env['omniauth.auth'])
+    @user = UserProvider.find_user(auth)
 
     if @user.persisted?
-      sign_in_and_redirect @user, event: :authentication
-      set_flash_message(:notice, :success, kind: 'Facebook') if is_navigational_format?
+      sign_in_and_redirect @user
+      set_flash_message(:notice, :success, :kind => provider_title)
     else
-      session['devise.facebook_data'] = request.env['omniauth.auth']
+      session[provider_data] = auth
       redirect_to new_user_registration_url
     end
   end
+  alias_method :google_oauth2, :facebook
+
 
   def failure
+    flash[:alert] = 'Authentication failed.'
     redirect_to root_path
   end
+
+
+  private
+
+  def provider_title
+    auth.provider.capitalize
+  end
+
+  def provider_data
+    "#devise.#{auth}_data"
+  end
+
+  def auth
+    request.env['omniauth.auth']
+  end
+
 end
