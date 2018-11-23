@@ -40,6 +40,7 @@ module OmniauthProviders
         user.username = auth.info.name
         user.email = auth.info.email.downcase
         user.password = Devise.friendly_token[0, 20]
+        user.avatar = auth.info.image
       end
     rescue ActiveRecord::RecordInvalid
       ::NewRelic::Agent.add_custom_attributes(auth)

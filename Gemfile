@@ -23,8 +23,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-datatables-rails'
 gem 'jquery-rails'
 gem 'momentjs-rails'
-gem 'omniauth-facebook'
-gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'      #for Facebook Authentication
+gem 'omniauth-google-oauth2' #for Google Authentication
+gem 'omniauth-github',              '~> 1.1.2' #for Github Authentication
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'pundit'
