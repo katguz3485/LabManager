@@ -14,8 +14,9 @@
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           .dropdown.show
-            %a#dropdown-menu-link.btn.btn-secondary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            %a#dropdown-menu-link.btn.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
               = current_user.email
+              %button.avatar{"aria-label" => "User Menu", "data-toggle" => "dropdown", :style => "background-image:url(#{avatar_path(current_user.avatar)})"}
             .dropdown-menu.dropdown-menu-left{"aria-labelledby" => "dropdown-menu-link"}
               = link_to t('navbar.logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item'
         - else
@@ -23,3 +24,7 @@
             = link_to t('navbar.signin'), new_user_session_path, class: 'nav-link'
           %li.nav-item
             = link_to t('navbar.signup'), new_user_registration_path, class: 'nav-link'
+
+
+
+

@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :user_providers, dependent: :destroy
 
+  validates_uniqueness_of :email
 
   def self.new_with_session(params, session)
     super.tap do |user|
