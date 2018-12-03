@@ -9,7 +9,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '194dc73d165f6400da5d2d4e491b9e30eb82f47ad68ec4cbf0616fe92662f012176eae216d9f5881cfdc1763a48ca12052fa3c1ecccba21d37587d937d62dcc3'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -24,6 +24,14 @@ Devise.setup do |config|
 
   config.omniauth :google_oauth2, Rails.application.credentials.dig(:google_oauth2, :client_id), Rails.application.credentials.dig(:google_oauth2, :client_secret), {}
 
+  require 'omniauth-github'
+
+
+  if Rails.env.development?
+    config.omniauth :github, Rails.application.credentials.development.dig(:github, :client_id), Rails.application.credentials.development.dig(:github, :client_secret), :scope => 'user:email'
+  else
+    config.omniauth :github, Rails.application.credentials.production.dig(:github, :client_id), Rails.application.credentials.production.dig(:github, :client_secret), :scope => 'user.email'
+  end
 
   require 'devise/orm/active_record'
 

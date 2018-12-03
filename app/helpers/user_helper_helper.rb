@@ -4,4 +4,5 @@ module UserHelperHelper
     avatar || image_path('labManagerLogo.png')
   end
 
+
 end
