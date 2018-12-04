@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OmniauthProviders
   class Builder
     attr_reader :auth, :user
@@ -19,6 +21,7 @@ module OmniauthProviders
         provider: auth.provider,
         uid: auth.uid,
         user_id: user.id
+
       }
     end
   end

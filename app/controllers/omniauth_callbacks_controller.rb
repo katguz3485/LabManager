@@ -1,4 +1,8 @@
-class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+# frozen_string_literal: true
+
+class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!
 
   def facebook
     @user = UserProvider.find_user(auth)
@@ -12,6 +16,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_registration_url
     end
   end
+
   alias_method :google_oauth2, :facebook
   alias_method :github, :google_oauth2
 
@@ -21,7 +26,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     redirect_to root_path
   end
 
-
   private
 
   def provider_title
@@ -30,10 +34,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def provider_data
     "#devise.#{auth}_data"
-  end
-
-  def auth
-    request.env['omniauth.auth']
   end
 
   def update_users_avatar
@@ -46,5 +46,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def avatar_from_provider
     @avatar_from_provider ||= auth.info.image
+    # binding.pry
+  end
+
+  def auth
+    request.env['omniauth.auth']
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OmniauthProviders
   class Finder
     attr_reader :auth
