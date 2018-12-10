@@ -6,7 +6,6 @@ en:
     signin: Sign in
     signup: Sign up
     payments: Payments
-    subject_item_notes: "Subject Item Notes"
     my_account: "My Account"
   shared:
     created: "%{resource} has been created!"
@@ -19,11 +18,10 @@ en:
     show_subject_items: Show your Item
     back: Back
     add_new_item: Add new one
-
+    error_create: Something went wrong. Check ii all fields contain the data.
   chemical:
     columns:
-      name: name
+      name: Name
       cas_number: cas_number
-      date: date
-      place: tuition fee
-      sum: sum
+      place: Place
+

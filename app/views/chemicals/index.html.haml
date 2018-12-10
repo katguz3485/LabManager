@@ -1,0 +1,35 @@
+%h1 Listing chemicals
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Formula
+      %th Molecular weight
+      %th Density
+      %th Cas number
+      %th Csid
+      %th Smiles
+      %th Inchi
+      %th
+      %th
+      %th
+
+  %tbody
+    - @chemicals.each do |chemical|
+      %tr
+        %td= chemical.name
+        %td= chemical.formula
+        %td= chemical.molecular_weight
+        %td= chemical.density
+        %td= chemical.cas_number
+        %td= chemical.csid
+        %td= chemical.smiles
+        %td= chemical.inchi
+        %td= link_to 'Show', chemical
+        %td= link_to 'Edit', edit_chemical_path(chemical)
+        %td= link_to 'Destroy', chemical, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Chemical', new_chemical_path

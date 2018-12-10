@@ -5,20 +5,21 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   subject(:user) do
     User.new(
-      username: 'kasia',
-      email: 'emailkasi@gmail.com',
-      password: 'safepassword',
-      provider: provider,
-      uid: '',
-      avatar: avatar,
+        username: 'kasia',
+        email: 'emailkasi@gmail.com',
+        password: 'safepassword',
+        provider: provider,
+        uid: '',
+        avatar: avatar,
     )
   end
 
-  let(:provider) { '' }
-  let(:avatar) { 'http://github.com/fake-avatar' }
+  let(:provider) {''}
+  let(:avatar) {'http://github.com/fake-avatar'}
 
-  it { is_expected.to have_many(:user_providers) }
-  it { should validate_uniqueness_of(:email).ignoring_case_sensitivity }
+  it {is_expected.to have_many(:user_providers)}
+  it {is_expected.to have_many(:chemicals)}
+  it {should validate_uniqueness_of(:email).ignoring_case_sensitivity}
 
 
   describe 'database_columns' do

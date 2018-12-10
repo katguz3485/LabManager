@@ -22,7 +22,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
 
   def failure
-    flash[:alert] = 'Authentication failed.'
+    flash.alert = I18n.t('shared.authentication_failure')
     redirect_to root_path
   end
 

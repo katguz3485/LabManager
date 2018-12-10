@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @chemical.name
+%p
+  %b Formula:
+  = @chemical.formula
+%p
+  %b Molecular weight:
+  = @chemical.molecular_weight
+%p
+  %b Density:
+  = @chemical.density
+%p
+  %b Cas number:
+  = @chemical.cas_number
+%p
+  %b Csid:
+  = @chemical.csid
+%p
+  %b Smiles:
+  = @chemical.smiles
+%p
+  %b Inchi:
+  = @chemical.inchi
+
+= link_to 'Edit', edit_chemical_path(@chemical)
+
+= link_to 'Back', chemicals_path

@@ -26,11 +26,10 @@ Devise.setup do |config|
 
   require 'omniauth-github'
 
-
   if Rails.env.production?
-    config.omniauth :github, Rails.application.credentials.dig(:production,:github, :client_id), Rails.application.credentials.dig(:development, :github, :client_secret), :scope => 'user:email'
+    config.omniauth :github, Rails.application.credentials.dig(:production,:github, :client_id), Rails.application.credentials.dig(:development, :github, :client_secret)
   else
-    config.omniauth :github, Rails.application.credentials.dig(:github, :client_id), Rails.application.credentials.dig(:github, :client_secret), :scope => 'user.email'
+    config.omniauth :github, Rails.application.credentials.dig(:github, :client_id), Rails.application.credentials.dig(:github, :client_secret)
   end
 
   require 'devise/orm/active_record'
