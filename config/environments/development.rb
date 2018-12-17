@@ -30,6 +30,21 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+
+  config.action_mailer.delivery_method = :test
+
+  config.action_mailer.default_url_options = { :host => 'http://localhost:3000'}
+
+  config.action_mailer.smtp_settings = {
+      address:              'smtp.sendgrid.net',
+      port:                 587,
+      domain:               'localhost:3000',
+      user_name:            Rails.application.credentials.dig(:sendgrid, :username),
+      password:             Rails.application.credentials.dig(:sendgrid, :password),
+      authentication:       'plain',
+      enable_starttls_auto: true
+  }
+
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 

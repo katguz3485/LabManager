@@ -31,6 +31,21 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.default_url_options = { :host => 'lab-manager-kg.herokuapp.com/', :protocol => 'https'}
+
+  config.action_mailer.smtp_settings = {
+      :address => 'smtp.sendgrid.net',
+      :port => '587',
+      :authentication => :plain,
+      :user_name => Rails.application.credentials.dig(:sendgrid, :username),
+      :password => Rails.application.credentials.dig(:sendgrid, :password),
+      :domain => 'heroku.com',
+      :enable_starttls_auto => true
+  }
+
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
