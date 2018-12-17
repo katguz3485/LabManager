@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe OmniauthCallbacksController, type: :controller do
+RSpec.describe Users::OmniauthCallbacksController, type: :controller do
   let(:user_signed_in?) {true}
-  let(:user) {FactoryBot.create(:user)}
-  let(:auth) {OmniAuth.config.mock_auth[:github]}
+  let(:user) { FactoryBot.create(:user) }
+  let(:auth) { OmniAuth.config.mock_auth[:github] }
   let(:persisted) { true }
 
   before do
