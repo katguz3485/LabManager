@@ -24,4 +24,11 @@ en:
       name: Name
       cas_number: cas_number
       place: Place
+      formula: "Formula"
+      category: "Category"
+      molecular_weight: "MW"
+      created_at: "Created_at"
+      density: "Density"
+      csid: "ChemSpider ID"
+      inchi: "InChi"
 

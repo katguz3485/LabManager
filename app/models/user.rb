@@ -9,7 +9,6 @@ class User < ApplicationRecord
 
   has_many :user_providers, dependent: :destroy
 
-
   validates :email, uniqueness: true
 
   def self.new_with_session(params, session)

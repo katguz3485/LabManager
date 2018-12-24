@@ -2,14 +2,15 @@
 $black: #000000;
 $white: #FFFFFF;
 $gray: #F0F0F0;
-$light_blue: #9ccdf2;
+$navy_blue:#082567;
+
 
 // override bootstrap variables
 $navbar-default-color: $black;
-$navbar-default-link-color: $black;
-$navbar-default-bg: $light_blue;
+$navbar-default-link-color: $white;
+$navbar-default-bg: $navy_blue;
 $footer-default-bg: $white;
-$footer-default-link-color: $black;
+$footer-default-link-color: $white;
 
 // import the CSS framework
 @import "bootstrap-sprockets";
@@ -106,7 +107,7 @@ section {
   background-size: contain;
   background-color: $black;
   margin-left: 0.2rem;
-  }
+}
 
 .breadcrumbs {
   padding-bottom: 30px;

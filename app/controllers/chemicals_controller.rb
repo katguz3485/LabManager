@@ -4,7 +4,7 @@ class ChemicalsController < ApplicationController
 
 
   def index
-    @chemical = Chemical.all
+    @chemicals = Chemical.all.decorate
   end
 
   def show;

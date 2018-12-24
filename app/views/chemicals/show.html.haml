@@ -1,30 +1,29 @@
-%p#notice= notice
+%table.table.table-condensed
+  %tbody
+    %tr
+      %td= t("chemical.columns.name")
+      %td= @chemical.name
+    %tr
+      %td= t("chemical.columns.formula")
+      %td= @chemical.formula
+    %tr
+      %td= t("chemical.columns.molecular_weight")
+      %td= @chemical.molecular_weight
+    %tr
+      %td= t("chemical.columns.density")
+      %td= @chemical.density
+    %tr
+      %td= t("chemical.columns.cas_number")
+      %td= @chemical.cas_number
+    %tr
+      %td= t("chemical.columns.csid")
+      %td= @chemical.csid
+    %tr
+      %td= t("chemical.columns.smiles")
+      %td= @chemical.smiles
+    %tr
+      %td= t("chemical.columns.inchi")
+      %td= @chemical.inchi
 
-%p
-  %b Name:
-  = @chemical.name
-%p
-  %b Formula:
-  = @chemical.formula
-%p
-  %b Molecular weight:
-  = @chemical.molecular_weight
-%p
-  %b Density:
-  = @chemical.density
-%p
-  %b Cas number:
-  = @chemical.cas_number
-%p
-  %b Csid:
-  = @chemical.csid
-%p
-  %b Smiles:
-  = @chemical.smiles
-%p
-  %b Inchi:
-  = @chemical.inchi
-
-= link_to 'Edit', edit_chemical_path(@chemical)
-
-= link_to 'Back', chemicals_path
+= link_to 'Edit', edit_chemical_path(@chemical), class: 'btn-btn-primary'
+= link_to 'Back', chemicals_path, class: 'btn-btn-primary'

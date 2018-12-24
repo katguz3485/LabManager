@@ -18,7 +18,6 @@ RSpec.describe User, type: :model do
   let(:avatar) {'http://github.com/fake-avatar'}
 
   it {is_expected.to have_many(:user_providers)}
-  it {is_expected.to have_many(:chemicals)}
   it {should validate_uniqueness_of(:email).ignoring_case_sensitivity}
 
 
