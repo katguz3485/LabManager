@@ -47,6 +47,7 @@ group :development, :test do
   gem 'byebug', platforms: %w(mri mingw x64_mingw)
   gem 'byebug'
   gem 'factory_bot_rails'
+  gem 'guard-livereload', '~> 2.5.2'
   gem 'pry'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.7'
