@@ -1,19 +1,26 @@
-%nav.navbar-default.navbar-fixed-top
-  .container-fluid
-    .navbar-header
-      %button.navbar-toggle{"aria-controls" => "navbar", "aria-expanded" => "true", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only
-        %span.icon-bar
-        = link_to t('navbar.app_name'), root_path, class: 'navbar-brand'
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+  .container
+    %a.navbar-brand{ href: root_path }
+      = image_tag 'labManagerLogo_flask.png', class: 'navbrand-logo'
+      = link_to "Lab Manager", root_path, class: 'navbar-brand'
     #navbar.navbar-collapse.collapse
-    %ul.nav.navbar-nav.navbar-right
-      - if user_signed_in?
-        %li= link_to t('navbar.chemicals_search'), root_path
-      - if user_signed_in?
-        %li= link_to t('navbar.my_account'), edit_user_registration_path
-        %li= link_to t('navbar.logout'), destroy_user_session_path, method: :delete
-      - else
-        %li= link_to t('navbar.signin'), new_user_session_path
-        %li= link_to t('navbar.signup'), new_user_registration_path
+      %ul.nav.navbar-nav
+        %li.nav-item.active
+          = link_to t('navbar.chemicals_search'), root_path
+      %ul.nav.navbar-nav.ml-auto
+        - if user_signed_in?
+          .dropdown.show
+            %a#dropdown-menu-link.btn.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              = current_user.email
+              %button.avatar{"aria-label" => "User Menu", "data-toggle" => "dropdown", :style => "background-image:url(#{avatar_path(current_user.avatar)})"}
+            .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "dropdown-menu-link"}
+              = link_to t('navbar.logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item'
+        - else
+          %li.nav-item
+            = link_to t('navbar.signin'), new_user_session_path, class: 'nav-link'
+          %li.nav-item
+            = link_to t('navbar.signup'), new_user_registration_path, class: 'nav-link'
+
+
 
 
