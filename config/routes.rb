@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :chemicals
+
   devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks', registrations: "users/registrations",
                                    confirmations: "users/confirmations"}
 
