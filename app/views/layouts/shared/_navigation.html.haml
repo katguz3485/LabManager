@@ -4,11 +4,12 @@
       = image_tag 'labManagerLogo_flask.png', class: 'navbrand-logo'
       = link_to "Lab Manager", root_path, class: 'navbar-brand'
     #navbar.navbar-collapse.collapse
-      %ul.nav.navbar-nav
-        %li.nav-item.active
-          = link_to t('navbar.chemicals_search'), chemicals_path
-        %li.nav-item.active
+      %ul.nav.navbar-nav.mr-auto
+        %li.nav-item
+          = link_to t('navbar.chemicals'), chemicals_path
+        %li.nav-item
           = link_to t('navbar.categories'), categories_path
+      %ul.nav.navbar-nav.ml-auto
         - if user_signed_in?
           .dropdown.show
             %a#dropdown-menu-link.btn.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
