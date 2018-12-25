@@ -1,4 +1,5 @@
 @import "framework_and_overrides";
+
 body {
   background-color: $white;
   color: $black;
@@ -19,19 +20,6 @@ pre {
   font-size: 11px;
 }
 
-a {
-  color: #000;
-
-  &:visited {
-    color: #666;
-  }
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
-}
-
 div {
   &.field, &.actions {
     margin-bottom: 10px;
@@ -42,23 +30,13 @@ div {
   border: 5px black;
   color: $white;
   margin-bottom: 10px;
-  background-color: $navy-blue;
+  background-color: $gray-900;
 
 }
 
 #btn.dropdown-toggle{
   font-size: $fs-1;
-
 }
-/*.header {
-  color: white;
-  text-shadow: black 0.3em 0.3em 0.3em;
-  background:transparent;
-  font-size: $fs-1;
-  z-index: $z-index-2;
-  margin-top: 200px;
-  padding-left:  50px;
-}*/
 
 
 #notice {
@@ -96,13 +74,12 @@ div {
   }
 }
 
-
 footer {
-  background-color: $navy_blue;
+  background-color: $orange;
   padding: 0;
   text-align: center;
   font-size: 1em;
-  min-height: 100px;
+  min-height: 200px;
   width: 100%;
   position: relative;
   bottom: 0px;
@@ -115,56 +92,4 @@ footer {
     align-items: center;
   }
 
-
-  .footer-links {
-    display: flex;
-    flex: 2;
-    justify-content: center;
-    align-items: center;
-
-    .footer-links-container {
-      display: flex;
-      width: 130px;
-      height: 90px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .footer-link {
-      flex-basis: 30px;
-      color: rgba(74, 74, 74, 0.7);
-      font-weight: bold;
-      text-decoration: none;
-      margin: 0;
-
-      &:hover {
-        color: $black;
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  footer {
-    min-height: 140px;
-    .footer-brand {
-      display: none;
-    }
-    .footer-links {
-      flex: 1;
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  footer {
-    min-height: 70px;
-    .footer-links {
-      display: none;
-    }
-    .footer-brand {
-      display:none;
-    }
-  }
 }

@@ -2,7 +2,6 @@ class ChemicalsController < ApplicationController
 
   before_action :set_chemical, only: [:show, :edit, :update, :destroy]
 
-
   def index
     @chemicals = Chemical.all.decorate
   end

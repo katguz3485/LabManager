@@ -1,17 +1,13 @@
-%nav.navbar-default.navbar-fixed-top
-  .container-fluid
-    .navbar-header
-      %button.navbar-toggle{"aria-controls" => "navbar", "aria-expanded" => "true", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      = link_to "LAB MANAGER", root_path, class: 'navbar-brand'
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+  .container
+    %a.navbar-brand{ href: root_path }
+      = image_tag 'labManagerLogo_flask.png', class: 'navbrand-logo'
+      = link_to "Lab Manager", root_path, class: 'navbar-brand'
     #navbar.navbar-collapse.collapse
-      %ul.nav.navbar-nav.navbar-center
-        %li
+      %ul.nav.navbar-nav
+        %li.nav-item.active
           = link_to t('navbar.chemicals_search'), root_path
-      %ul.nav.navbar-nav.navbar-right
+      %ul.nav.navbar-nav
         - if user_signed_in?
           .dropdown.show
             %a#dropdown-menu-link.btn.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
