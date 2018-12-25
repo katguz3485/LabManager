@@ -7,6 +7,7 @@ en:
     signup: Sign up
     payments: Payments
     my_account: "My Account"
+    categories: "Categories"
   shared:
     created: "%{resource} has been created!"
     updated: "%{resource} has been updated!"

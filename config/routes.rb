@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/auth/failure' => 'omniauth_callbacks#failure'
 
   resources :chemicals
+  resources :categories
 
 
 end
