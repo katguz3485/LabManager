@@ -1189,6 +1189,7 @@ DEPENDENCIES
   rails_12factor
   redis (~> 4.0)
   rspec-rails (~> 3.7)
+  rubocop
   rubocop-rspec
   sass-rails
   selenium-webdriver

@@ -1,6 +1,7 @@
 = simple_form_for @chemical do |f|
   = f.input :name
   = f.input :formula
+  = f.association :category
   = f.input :molecular_weight
   = f.input :density
   = f.input :cas_number
