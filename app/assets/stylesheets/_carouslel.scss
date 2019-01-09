@@ -1,0 +1,18 @@
+.backgrounds-carousel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -100;
+
+  .background-slide {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  @for $i from 1 through 3 {
+    .background-slide-#{$i} {
+      background: url('backgrounds/#{$i}.jpg') no-repeat center center;
+      background-size: cover;
+    }
+  }
+}
