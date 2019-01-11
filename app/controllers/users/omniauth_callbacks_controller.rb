@@ -4,24 +4,23 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   skip_before_action :verify_authenticity_token
   before_action :authenticate_user!
 
-  def facebook
+  def github
     @user = UserProvider.find_user(auth)
     update_users_avatar if avatar_needs_updated?
 
     if @user.persisted?
       sign_in_and_redirect @user
-      set_flash_message(:notice, :success, kind: provider_title)
+      set_flash_message(:notice, :success, :kind => provider_title)
     else
-      session[provider_data] = auth
+      session['devise.github_data'] = auth
       redirect_to new_user_registration_url
     end
   end
-
-  alias_method :google_oauth2, :facebook
-  alias_method :github, :google_oauth2
+  alias_method :google_oauth2, :github
+  alias_method :facebook, :github
 
   def failure
-    flash.alert = I18n.t('shared.authentication_failure')
+    flash[:alert] = 'Authentication failed.'
     redirect_to root_path
   end
 
@@ -45,7 +44,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def avatar_from_provider
     @avatar_from_provider ||= auth.info.image
-    # binding.pry
+    #binding.pry
   end
 
   def auth

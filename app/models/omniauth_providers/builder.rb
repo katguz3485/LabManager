@@ -18,6 +18,7 @@ module OmniauthProviders
 
     def provider_attributes
       {
+
         provider: auth.provider,
         uid: auth.uid,
         user_id: user.id

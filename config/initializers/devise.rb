@@ -10,26 +10,20 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '194dc73d165f6400da5d2d4e491b9e30eb82f47ad68ec4cbf0616fe92662f012176eae216d9f5881cfdc1763a48ca12052fa3c1ecccba21d37587d937d62dcc3'
 
-  # ==> Controller configuration
-  # Configure the parent class to the devise controllers.
-  # config.parent_controller = 'DeviseController'
 
-  # ==> Mailer Configuration
-  # Configure the e-mail address which will be shown in Devise::Mailer,
-  # note that it will be overwritten if you use your own mailer class
-  # with default "from" parameter.
   config.mailer_sender = 'lab-manager@example.com'
 
   config.omniauth :facebook, Rails.application.credentials.dig(:facebook, :app_id), Rails.application.credentials.dig(:facebook, :app_secret), callback_url: "http://localhost:3000/users/auth/facebook/callback"
 
   config.omniauth :google_oauth2, Rails.application.credentials.dig(:google_oauth2, :client_id), Rails.application.credentials.dig(:google_oauth2, :client_secret), {}
 
+
   require 'omniauth-github'
 
   if Rails.env.production?
-    config.omniauth :github, Rails.application.credentials.dig(:production,:github, :client_id), Rails.application.credentials.dig(:development, :github, :client_secret)
+    config.omniauth :github, Rails.application.credentials.dig(:production, :github, :client_id), Rails.application.credentials.dig(:development, :github, :client_secret), :scope => 'user:email'
   else
-    config.omniauth :github, Rails.application.credentials.dig(:github, :client_id), Rails.application.credentials.dig(:github, :client_secret)
+    config.omniauth :github, Rails.application.credentials.dig(:github, :client_id), Rails.application.credentials.dig(:github, :client_secret), :scope => 'user:email'
   end
 
   require 'devise/orm/active_record'

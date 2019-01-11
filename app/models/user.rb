@@ -11,6 +11,17 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
 
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.github_data"] && session["devise.github_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
+
+
+=begin
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
@@ -18,6 +29,7 @@ class User < ApplicationRecord
       end
     end
   end
+=end
 
   def update_avatar(avatar)
     update!(avatar: avatar)
