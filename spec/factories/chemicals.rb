@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :chemical do
-    name "MyString"
-    formula "MyString"
+    name 'MyString'
+    formula 'MyString'
     molecular_weight 1.5
     density 1.5
-    cas_number "MyString"
+    cas_number 'MyString'
     csid 1
-    smiles "MyString"
-    inchi "MyString"
-    image ""
+    smiles 'MyString'
+    inchi 'MyString'
+    image ''
   end
 end

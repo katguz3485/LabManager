@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Users::OmniauthCallbacksController, type: :controller do
-  let(:user_signed_in?) {true}
+  let(:user_signed_in?) { true }
   let(:user) { FactoryBot.create(:user) }
   let(:auth) { OmniAuth.config.mock_auth[:github] }
   let(:persisted) { true }
@@ -14,10 +14,5 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
 
     allow(UserProvider).to receive(:find_user).with(auth).and_return(user)
     allow(user).to receive(:persisted?).and_return(persisted)
-
   end
-
-
-
-
 end

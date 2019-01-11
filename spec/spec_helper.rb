@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
@@ -30,5 +31,4 @@ RSpec.configure do |config|
   # inherited by the metadata hash of host groups and examples, rather than
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
-
 end

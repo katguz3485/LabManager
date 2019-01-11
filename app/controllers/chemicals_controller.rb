@@ -1,13 +1,13 @@
-class ChemicalsController < ApplicationController
+# frozen_string_literal: true
 
+class ChemicalsController < ApplicationController
   before_action :set_chemical, only: [:show, :edit, :update, :destroy]
 
   def index
     @chemicals = Chemical.all.decorate
   end
 
-  def show;
-  end
+  def show; end
 
   def new
     @chemical = Chemical.new
@@ -23,8 +23,7 @@ class ChemicalsController < ApplicationController
     end
   end
 
-  def edit;
-  end
+  def edit; end
 
   def destroy
     @chemical.destroy
@@ -37,9 +36,7 @@ class ChemicalsController < ApplicationController
     @chemical = Chemical.find(params[:id])
   end
 
-
   def chemical_params
     params.require(:chemical).permit(:name, :formula, :molecular_weight, :density, :cas_number, :csid, :smiles, :inchi, :image)
   end
-
 end

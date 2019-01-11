@@ -1,0 +1,14 @@
+.carousel#dashboard-carousel.slide.backgrounds-carousel{ data: { ride: 'slide' }}
+  .carousel-inner
+    - (1..2).each do |i|
+      .carousel-item{ class: "#{i == 1 ? 'active' : ''}" }
+        .d-block.background-slide{ class: "background-slide-#{i}" }
+          .carousel-caption.d-none.d-md-block
+            %h2 Organize your research items
+            %h4 Manage your lab with ease
+            %a.carousel-control-prev{ href: '#dashboard-carousel', role: 'button', data: { slide: 'prev' }}
+              %span.carousel-control-prev-icon{ 'aria-hidden' => 'true'}
+              %span.sr-only Previous
+            %a.carousel-control-next{ href: '#dashboard-carousel', role: 'button', data: { slide: 'next' }}
+              %span.carousel-control-next-icon{ 'aria-hidden' => 'true'}
+              %span.sr-only Next

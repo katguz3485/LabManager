@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
+class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   skip_before_action :verify_authenticity_token
   before_action :authenticate_user!
 
@@ -10,7 +10,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if @user.persisted?
       sign_in_and_redirect @user
-      set_flash_message(:notice, :success, :kind => provider_title)
+      set_flash_message(:notice, :success, kind: provider_title)
     else
       session[provider_data] = auth
       redirect_to new_user_registration_url
@@ -19,7 +19,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   alias_method :google_oauth2, :facebook
   alias_method :github, :google_oauth2
-
 
   def failure
     flash.alert = I18n.t('shared.authentication_failure')

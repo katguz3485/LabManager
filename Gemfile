@@ -5,11 +5,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
-gem 'bootsnap',require: false
-gem 'bootstrap'
-gem 'bootstrap_form'
-gem 'bootstrap4-kaminari-views'
 gem 'aws-sdk', '~> 3'
+gem 'bootsnap', require: false
+gem 'bootstrap'
+gem 'bootstrap4-kaminari-views'
+gem 'bootstrap_form'
 gem 'carrierwave', '~> 1.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
