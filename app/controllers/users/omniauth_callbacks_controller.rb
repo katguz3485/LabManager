@@ -44,7 +44,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def avatar_from_provider
     @avatar_from_provider ||= auth.info.image
-    #binding.pry
   end
 
   def auth

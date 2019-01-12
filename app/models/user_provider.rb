@@ -6,4 +6,6 @@ class UserProvider < ApplicationRecord
   def self.find_user(auth)
     OmniauthProviders::Finder.find(auth).user
   end
+
+
 end

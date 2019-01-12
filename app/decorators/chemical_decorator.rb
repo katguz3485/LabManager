@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ChemicalDecorator < Draper::Decorator
+class ChemicalDecorator < BaseDecorator
   delegate_all
   include Draper::LazyHelpers
 
