@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
   devise :database_authenticatable, :registerable,
-         :confirmable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google, :github]
+         :confirmable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:github, :google, :facebook]
 
   has_many :user_providers, dependent: :destroy
 
@@ -24,4 +24,4 @@ class User < ApplicationRecord
   def update_avatar(avatar)
     update!(avatar: avatar)
   end
-  end
+end

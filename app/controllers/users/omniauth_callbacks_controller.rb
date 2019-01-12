@@ -16,7 +16,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_registration_url
     end
   end
-  alias_method :google_oauth2, :github
+  alias_method :google, :github
   alias_method :facebook, :github
 
   def failure

@@ -1184,7 +1184,7 @@ DEPENDENCIES
   momentjs-rails
   omniauth-facebook
   omniauth-github (~> 1.1.2)
-  omniauth-google-oauth2
+  omniauth-google-oauth2 (~> 0.5.1)
   pg (>= 0.18, < 2.0)
   pry
   pry-rails
