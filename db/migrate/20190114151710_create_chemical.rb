@@ -1,4 +1,4 @@
-class CreateChemicals < ActiveRecord::Migration[5.2]
+class CreateChemical < ActiveRecord::Migration[5.2]
   def change
     create_table :chemicals do |t|
       t.string :name
@@ -9,8 +9,10 @@ class CreateChemicals < ActiveRecord::Migration[5.2]
       t.integer :csid
       t.string :smiles
       t.string :inchi
-
+      t.integer :user_id
+      t.string :image
       t.timestamps
+
     end
   end
 end

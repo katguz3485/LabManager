@@ -10,24 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_17_095220) do
+ActiveRecord::Schema.define(version: 2019_01_14_175548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string "category_name"
+  end
+
   create_table "chemicals", force: :cascade do |t|
-    t.string "name"
+    t.string "chemical_name"
     t.string "formula"
     t.float "molecular_weight"
     t.float "density"
     t.string "cas_number"
     t.integer "csid"
-    t.string "smiles"
-    t.string "inchi"
+    t.string "canonical_smiles"
+    t.string "inchi_key"
+    t.integer "user_id"
+    t.string "formula_picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
-    t.integer "user_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_chemicals_on_category_id"
   end
 
   create_table "user_providers", force: :cascade do |t|
@@ -65,4 +71,5 @@ ActiveRecord::Schema.define(version: 2018_12_17_095220) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chemicals", "categories"
 end
