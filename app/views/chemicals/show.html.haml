@@ -2,7 +2,7 @@
   %tbody
     %tr
       %td= t("chemical.columns.name")
-      %td= @chemical.name
+      %td= @chemical.chemical_name
     %tr
       %td= t("chemical.columns.formula")
       %td= @chemical.formula
@@ -16,14 +16,13 @@
       %td= t("chemical.columns.cas_number")
       %td= @chemical.cas_number
     %tr
-      %td= t("chemical.columns.csid")
-      %td= @chemical.csid
-    %tr
       %td= t("chemical.columns.smiles")
-      %td= @chemical.smiles
+      %td= @chemical.canonical_smiles
     %tr
       %td= t("chemical.columns.inchi")
-      %td= @chemical.inchi
+      %td= @chemical.inchi_key
+
+
 
 = link_to 'Edit', edit_chemical_path(@chemical), class: 'btn-btn-primary'
 = link_to 'Back', chemicals_path, class: 'btn-btn-primary'

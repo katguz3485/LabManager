@@ -33,4 +33,6 @@ en:
       density: "Density"
       csid: "ChemSpider ID"
       inchi: "InChi"
+      smiles: "Smiles"
+      image: "Structure"
 

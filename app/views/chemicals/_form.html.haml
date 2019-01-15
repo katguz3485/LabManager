@@ -1,12 +1,11 @@
 = simple_form_for @chemical do |f|
-  = f.input :name
+  = f.input :chemical_name
   = f.input :formula
-  = f.association :category
   = f.input :molecular_weight
   = f.input :density
+  = f.association :category, collection: Category.pluck(:category_name), prompt: "Choose a category"
   = f.input :cas_number
-  = f.input :csid
-  = f.input :smiles
-  = f.input :image, as: :file
+  = f.input :canonical_smiles
+  = f.input :formula_picture, as: :file
   = f.button :submit, class: 'btn btn-primary'
 

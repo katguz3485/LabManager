@@ -388,7 +388,7 @@ GEM
     aws-sdk-mediaconnect (1.0.0)
       aws-sdk-core (~> 3, >= 3.39.0)
       aws-sigv4 (~> 1.0)
-    aws-sdk-mediaconvert (1.18.0)
+    aws-sdk-mediaconvert (1.19.0)
       aws-sdk-core (~> 3, >= 3.39.0)
       aws-sigv4 (~> 1.0)
     aws-sdk-medialive (1.18.0)
@@ -712,7 +712,7 @@ GEM
     aws-sdk-states (1.10.0)
       aws-sdk-core (~> 3, >= 3.39.0)
       aws-sigv4 (~> 1.0)
-    aws-sdk-storagegateway (1.13.0)
+    aws-sdk-storagegateway (1.14.0)
       aws-sdk-core (~> 3, >= 3.39.0)
       aws-sigv4 (~> 1.0)
     aws-sdk-support (1.6.0)
@@ -902,7 +902,7 @@ GEM
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
     http_parser.rb (0.6.0)
-    i18n (1.5.1)
+    i18n (1.5.2)
       concurrent-ruby (~> 1.0)
     ipaddress (0.8.3)
     jaro_winkler (1.5.2)
@@ -957,7 +957,7 @@ GEM
     multipart-post (2.0.0)
     nenv (0.3.0)
     nio4r (2.3.1)
-    nokogiri (1.10.0)
+    nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
@@ -1010,7 +1010,7 @@ GEM
       activerecord (= 5.2.2)
       activestorage (= 5.2.2)
       activesupport (= 5.2.2)
-      bundler (>= 1.3.0)
+      bundler (>= 2.0.0)
       railties (= 5.2.2)
       sprockets-rails (>= 2.0.0)
     rails-dom-testing (2.0.3)
@@ -1066,8 +1066,6 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.4.0)
-    rubocop-rspec (1.31.0)
-      rubocop (>= 0.60.0)
     ruby-progressbar (1.10.0)
     ruby_dep (1.5.0)
     ruby_parser (3.12.0)
@@ -1148,7 +1146,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk (~> 3)
+  aws-sdk
   better_errors
   bootsnap
   bootstrap
@@ -1180,7 +1178,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   launchy
-  listen (>= 3.0.5, < 3.2)
+  listen
   momentjs-rails
   omniauth-facebook
   omniauth-github (~> 1.1.2)
@@ -1194,7 +1192,6 @@ DEPENDENCIES
   redis (~> 4.0)
   rspec-rails (~> 3.7)
   rubocop
-  rubocop-rspec
   sass-rails
   selenium-webdriver
   shoulda
@@ -1206,8 +1203,5 @@ DEPENDENCIES
   uglifier
   web-console (>= 3.3.0)
 
-RUBY VERSION
-   ruby 2.5.1p57
-
 BUNDLED WITH
-   1.17.1
+   2.0.1

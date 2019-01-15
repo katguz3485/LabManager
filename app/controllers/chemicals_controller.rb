@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class ChemicalsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_chemical, only: [:show, :edit, :update, :destroy]
 
   def index
-    @chemicals = Chemical.all.decorate
+    @chemicals = Chemical.all
   end
 
   def show; end
@@ -37,6 +38,7 @@ class ChemicalsController < ApplicationController
   end
 
   def chemical_params
-    params.require(:chemical).permit(:name, :formula, :molecular_weight, :density, :cas_number, :csid, :smiles, :inchi, :image)
+    params.require(:chemical).permit(:chemical_name, :formula, :molecular_weight, :density, :cas_number, :canonical_smiles, :inchi_key, :user_id, :formula_picture)
   end
 end
+

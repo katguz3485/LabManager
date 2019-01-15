@@ -3,9 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
-
-gem 'aws-sdk', '~> 3'
+gem 'aws-sdk'
 gem 'bootsnap', require: false
 gem 'bootstrap'
 gem 'bootstrap4-kaminari-views'
@@ -35,7 +33,6 @@ gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.1'
 gem 'redis', '~> 4.0'
 gem 'rubocop'
-gem 'rubocop-rspec'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'turbolinks', '~> 5'
@@ -54,7 +51,7 @@ group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'better_errors'
   gem 'guard-rubocop', require: false
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'

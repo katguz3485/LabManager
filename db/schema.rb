@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_14_175548) do
+ActiveRecord::Schema.define(version: 2019_01_15_133657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2019_01_14_175548) do
     t.float "molecular_weight"
     t.float "density"
     t.string "cas_number"
-    t.integer "csid"
     t.string "canonical_smiles"
     t.string "inchi_key"
     t.integer "user_id"
@@ -69,7 +68,8 @@ ActiveRecord::Schema.define(version: 2019_01_14_175548) do
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
 
+  end
   add_foreign_key "chemicals", "categories"
+
 end
