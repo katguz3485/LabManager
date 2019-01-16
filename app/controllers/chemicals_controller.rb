@@ -26,6 +26,14 @@ class ChemicalsController < ApplicationController
 
   def edit; end
 
+  def update
+    if @chemical.update(chemical_params)
+      redirect_to chemical_path(@chemical), notice: t('shared.updated')
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @chemical.destroy
     redirect_to chemicals_path, notice: I18n.t('shared.deleted', resource: 'Chemical')
@@ -41,4 +49,3 @@ class ChemicalsController < ApplicationController
     params.require(:chemical).permit(:chemical_name, :formula, :molecular_weight, :density, :cas_number, :canonical_smiles, :inchi_key, :user_id, :formula_picture)
   end
 end
-

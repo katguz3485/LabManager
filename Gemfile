@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '2.5.1'
+ruby '2.5.3'
 
 gem 'aws-sdk'
 gem 'bootsnap', require: false
@@ -28,7 +28,7 @@ gem 'jquery-rails'
 gem 'momentjs-rails'
 gem 'omniauth-facebook' # for Facebook Authentication
 gem 'omniauth-github', '~> 1.1.2' # for Github Authentication
-gem 'omniauth-google-oauth2',       '~> 0.5.1' #for Google Authentication
+gem 'omniauth-google-oauth2',       '~> 0.5.1' # for Google Authentication
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.1'

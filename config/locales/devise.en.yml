@@ -64,3 +64,7 @@ en:
         other: "%{count} errors prohibited this %{resource} from being saved:"
   shared:
     authentication_failure: "Authentication failure"
+    add_new_category: "Add category"
+  category:
+    columns:
+      name: "Name"

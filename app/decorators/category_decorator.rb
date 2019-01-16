@@ -4,13 +4,7 @@ class CategoryDecorator < Draper::Decorator
   delegate_all
 
   def category_name
-    if category.present?
-      category.name.to_s
-    else
-      category.name = t('shared.not_exist')
-
-    end
-
+    @category.present? ? @category.name : @category.name = t('shared.not_exist')
   end
 
   # Define presentation-specific methods here. Helpers are accessed through

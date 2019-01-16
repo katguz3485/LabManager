@@ -3,9 +3,12 @@
   = f.input :formula
   = f.input :molecular_weight
   = f.input :density
-  = f.association :category, collection: Category.pluck(:category_name), prompt: "Choose a category"
+  = f.association :category, collection: Category.pluck(:category_name), prompt: 'Choose a category'
+  .row
+    = link_to t('shared.add_new_category'), new_category_path, class: 'btn btn-outline-success'
   = f.input :cas_number
   = f.input :canonical_smiles
   = f.input :formula_picture, as: :file
-  = f.button :submit, class: 'btn btn-primary'
+  .row
+    = f.button :submit, class: 'btn btn-outline-primary'
 
