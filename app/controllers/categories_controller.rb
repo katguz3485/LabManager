@@ -8,8 +8,7 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
-  def show;
-  end
+  def show; end
 
   def new
     @category = Category.new
@@ -25,8 +24,7 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def edit;
-  end
+  def edit; end
 
   def update
     if @category.update
@@ -50,6 +48,4 @@ class CategoriesController < ApplicationController
   def category_params
     params.require(:category).permit(:category_name)
   end
-
-
 end
