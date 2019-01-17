@@ -17,4 +17,7 @@ class ChemicalDecorator < BaseDecorator
     density = density.to_s
     density.present? ? unit_of_measurement_adder(density, 'g/mL') : '-'
   end
+
+
+
 end

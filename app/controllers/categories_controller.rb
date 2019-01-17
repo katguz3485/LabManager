@@ -30,11 +30,11 @@ class CategoriesController < ApplicationController
     if @category.update
       redirect to category_path
     else
-      flash.now.alert = I18n.t('shared.')
+      flash.now.alert = I18n.t('shared.updated')
     end
   end
 
-  def delete
+  def destroy
     @category.destroy
     redirect_to categories_path, notice: I18n.t('shared.deleted', resource: 'Category')
   end

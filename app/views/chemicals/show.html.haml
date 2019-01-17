@@ -3,7 +3,8 @@
     %tr
       %td
         .row.pull-left
-          %button.avatar_show_view{"aria-label" => "User Menu", :style => "background-image:url(#{avatar_path(current_user.avatar)})"}
+          %p Created by
+          %image.avatar_show_view{ :style => "background-image:url(#{avatar_path(current_user.avatar)})"}
           = @chemical.created_at.strftime('%Y-%m-%d')
         .row.pull-right
           = link_to t('chemical.edit'), edit_chemical_path(@chemical), class: 'btn btn-outline-primary'
@@ -24,7 +25,7 @@
             %td= t("chemical.columns.density")
             %td= @chemical.decorate.density_formater(@chemical.density)
           %tr
-            %td= t("chemical.columns.cas_number")
+            %td= t("chemical.columns.cas_number_formatted")
             %td= @chemical.cas_number
           %tr
             %td= t("chemical.columns.smiles")

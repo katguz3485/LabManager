@@ -1,0 +1,24 @@
+.row
+  .col-md-12.col-md-offset-2
+    %table.table.table-light.center-content
+      %thead
+        %tr
+          %th= t('shared.index')
+          %th= t('category.columns.name')
+          %th= t('shared.actions')
+        %tbody
+          - @categories.each_with_index do |category, index|
+            %tr
+              %td= index + 1
+              %td= category.category_name
+              %td
+                = link_to category, { title: t('shared.show') } do
+                  %button.btn.btn-primary
+                    = fa_icon "search"
+                = link_to edit_category_path(category), { title: t('shared.edit') } do
+                  %button.btn.btn-primary
+                    = fa_icon "edit"
+                = link_to category, { method: :delete, title: t('shared.delete') } do
+                  %button.btn.btn-primary
+                    = fa_icon "times"
+= link_to t('shared.add_new_item'), new_category_path, class: 'btn btn-outline-success'

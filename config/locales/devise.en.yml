@@ -66,6 +66,8 @@ en:
     authentication_failure: "Authentication failure"
     add_new_category: "Add category"
     add: "Add"
+    index: "No"
+    view: "Show"
   category:
     columns:
       name: "Name"
