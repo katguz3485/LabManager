@@ -35,4 +35,6 @@ en:
       inchi: "InChi"
       smiles: "Smiles"
       image: "Structure"
+      cas_number_formatted: "CAS"
+    edit: "Edit"
 

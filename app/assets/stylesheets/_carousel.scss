@@ -1,15 +1,15 @@
 .backgrounds-carousel {
 
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: -100;
 
   .background-slide {
-    height: 65vh;
+    height: 50vh;
     min-height: 400px;
     text-align: center;
-    width: 100vw;
+    width: 62vw;
   }
 
   @for $i from 1 through 3 {

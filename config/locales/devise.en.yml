@@ -65,6 +65,7 @@ en:
   shared:
     authentication_failure: "Authentication failure"
     add_new_category: "Add category"
+    add: "Add"
   category:
     columns:
       name: "Name"

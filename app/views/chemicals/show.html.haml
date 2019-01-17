@@ -1,27 +1,38 @@
-%table.table.table-condensed
-  %tbody
+.row
+  %table.table.condensed
     %tr
-      %td= t("chemical.columns.name")
-      %td= @chemical.chemical_name
-    %tr
-      %td= t("chemical.columns.formula")
-      %td= @chemical.formula
-    %tr
-      %td= t("chemical.columns.molecular_weight")
-      %td= @chemical.decorate.molecular_weight_formater(@chemical.molecular_weight)
-    %tr
-      %td= t("chemical.columns.density")
-      %td= @chemical.decorate.density_formater(@chemical.density)
-    %tr
-      %td= t("chemical.columns.cas_number")
-      %td= @chemical.cas_number
-    %tr
-      %td= t("chemical.columns.smiles")
-      %td= @chemical.canonical_smiles
-    %tr
-      %td= t("chemical.columns.inchi")
-      %td= @chemical.inchi_key
+      %td
+        .row.pull-left
+          %button.avatar_show_view{"aria-label" => "User Menu", :style => "background-image:url(#{avatar_path(current_user.avatar)})"}
+          = @chemical.created_at.strftime('%Y-%m-%d')
+        .row.pull-right
+          = link_to t('chemical.edit'), edit_chemical_path(@chemical), class: 'btn btn-outline-primary'
+          = link_to t('shared.delete'), chemical_path(@chemical), { method: :delete, class: 'btn btn-outline-danger'}
+          = link_to t('shared.add'), new_chemical_path(@chemical), class: 'btn btn-outline-success'
+      %table.table.table-condensed
+        %tbody
+          %tr
+            %td= t("chemical.columns.name")
+            %td= @chemical.chemical_name
+          %tr
+            %td= t("chemical.columns.formula")
+            %td= @chemical.formula
+          %tr
+            %td= t("chemical.columns.molecular_weight")
+            %td= @chemical.decorate.molecular_weight_formater(@chemical.molecular_weight)
+          %tr
+            %td= t("chemical.columns.density")
+            %td= @chemical.decorate.density_formater(@chemical.density)
+          %tr
+            %td= t("chemical.columns.cas_number")
+            %td= @chemical.cas_number
+          %tr
+            %td= t("chemical.columns.smiles")
+            %td= @chemical.canonical_smiles
+          %tr
+            %td= t("chemical.columns.inchi")
+            %td= @chemical.inchi_key
 
+= link_to 'Edit', edit_chemical_path(@chemical), class: 'btn btn-outline-primary'
+= link_to 'Back', chemicals_path, class: 'btn btn-outline-primary'
 
-= link_to 'Edit', edit_chemical_path(@chemical), class: 'btn-btn-primary'
-= link_to 'Back', chemicals_path, class: 'btn-btn-primary'
