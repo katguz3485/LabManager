@@ -13,12 +13,12 @@
               %td= category.category_name
               %td
                 = link_to category, { title: t('shared.show') } do
-                  %button.btn.btn-primary
+                  %button.btn.btn-outline-primary
                     = fa_icon "search"
                 = link_to edit_category_path(category), { title: t('shared.edit') } do
-                  %button.btn.btn-primary
+                  %button.btn.btn-outline-success
                     = fa_icon "edit"
                 = link_to category, { method: :delete, title: t('shared.delete') } do
-                  %button.btn.btn-primary
+                  %button.btn.btn-outline-danger
                     = fa_icon "times"
 = link_to t('shared.add_new_item'), new_category_path, class: 'btn btn-outline-success'
