@@ -22,4 +22,6 @@ class User < ApplicationRecord
   def update_avatar(avatar)
     update!(avatar: avatar)
   end
+
+
 end

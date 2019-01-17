@@ -28,7 +28,7 @@ class ChemicalsController < ApplicationController
 
   def update
     if @chemical.update(chemical_params)
-      redirect_to chemical_path(@chemical), notice: t('shared.updated')
+      redirect_to chemical_path(@chemical), notice: t('shared.updated', resource: 'Chemical')
     else
       render :edit
     end
