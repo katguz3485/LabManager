@@ -3,16 +3,7 @@
 class CategoryDecorator < Draper::Decorator
   delegate_all
 
-  def category_name
-    @category.present? ? @category.name : @category.name = t('shared.not_exist')
+  def titleize_category_name
+    category.present? ? category.decorate.category_name.to_s.titleize : '-'
   end
-
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
 end

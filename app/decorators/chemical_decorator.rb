@@ -18,6 +18,13 @@ class ChemicalDecorator < BaseDecorator
     density.present? ? unit_of_measurement_adder(density, 'g/mL') : '-'
   end
 
+  def titleize_chemical_name
+    chemical.present? ? chemical.decorate.chemical_name.to_s.titleize : '-'
+  end
 
+
+  def formula_formater(formula)
+    #TODO
+  end
 
 end

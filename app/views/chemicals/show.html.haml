@@ -8,19 +8,19 @@
           = @chemical.created_at.strftime('%Y-%m-%d')
         .row.pull-right
           = link_to new_chemical_path(@chemical), { title: t('shared.edit') } do
-            %button.btn.btn-outline-success.style_item
+            %button.btn.btn-outline-success.btn_margin
               = fa_icon "plus"
           = link_to edit_chemical_path(@chemical), {title: "edit"} do
-            %button.btn.btn-outline-primary.style_item
+            %button.btn.btn-outline-primary.btn_margin
               = fa_icon "edit"
           = link_to chemical_path(@chemical), { method: :delete, title: "delete"} do
-            %button.btn.btn-outline-danger.style_item
+            %button.btn.btn-outline-danger.btn_margin
               = fa_icon "trash"
       %table.table.table-condensed
         %tbody
           %tr
             %td= t("chemical.columns.name")
-            %td= @chemical.chemical_name
+            %td= @chemical.decorate.titleize_chemical_name
           %tr
             %td= t("chemical.columns.formula")
             %td= @chemical.formula
