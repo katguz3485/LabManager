@@ -2,7 +2,7 @@
   %tbody
     %tr
       %td= t('category.columns.name')
-      %td= @category.category_name
+      %td= @category.decorate.titleize_category_name
 
 = link_to 'Edit', edit_category_path(@category), class: 'btn-btn-primary'
 = link_to 'Back', chemicals_path, class: 'btn-btn-warning'

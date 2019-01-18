@@ -3,24 +3,25 @@
     %table.table.table-light.center-content
       %thead
         %tr
+          %th= t('chemical.columns.image')
           %th= t('chemical.columns.name')
           %th= t('chemical.columns.smiles')
           %th= t('chemical.columns.formula')
           %th= t('chemical.columns.molecular_weight')
           %th= t('chemical.columns.cas_number_formatted')
           %th= t('chemical.columns.created_at')
-          %th= t('chemical.columns.image')
         %tbody
           %tr
             - @chemicals.each do |chemical|
               %tr
-                %td= link_to chemical.chemical_name, chemical_path(chemical)
+                %td
+                  %img.img-rounded{ src: chemical.formula_picture}
+                %td= link_to chemical.decorate.titleize_chemical_name, chemical_path(chemical)
                 %td= chemical.canonical_smiles
                 %td= chemical.formula
                 %td= chemical.molecular_weight
                 %td= chemical.cas_number
                 %td= chemical.created_at
-                %td= chemical.formula_picture
 
 = link_to t('shared.add_new_item'), new_chemical_path, class: 'btn btn-primary'
 
