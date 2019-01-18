@@ -20,7 +20,6 @@ gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
 gem 'figaro'
 gem 'fog-aws', require: true
 gem 'font-awesome-rails'
-gem 'gretel'
 gem 'haml-rails', '~> 1.0'
 gem 'html2haml'
 gem 'jbuilder', '~> 2.5'

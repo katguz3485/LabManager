@@ -1,0 +1,2 @@
+module HazardsAndSafetyInfoHelper
+end

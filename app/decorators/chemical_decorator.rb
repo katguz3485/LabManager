@@ -24,7 +24,8 @@ class ChemicalDecorator < BaseDecorator
 
 
   def formula_formater(formula)
-    #TODO
+    #TODO implement this
+    #TODO remove redundancy in density mw methods
   end
 
 end
