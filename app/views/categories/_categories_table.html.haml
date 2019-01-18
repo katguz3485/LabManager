@@ -1,6 +1,14 @@
 .row
   .col-md-12.col-md-offset-2
-    %table.table.table-light.center-content
+    %table.table.table-condensed
+      %thead
+        %tr
+          %td
+            .row.pull-right
+              = link_to t('shared.add_new_item'), new_category_path, class: 'btn btn-outline-success'
+.row
+  .col-md-12.col-md-offset-2
+    %table.table.table-condensed
       %thead
         %tr
           %th= t('shared.index')
@@ -12,13 +20,10 @@
               %td= index + 1
               %td= category.category_name
               %td
-                = link_to category, { title: t('shared.show') } do
-                  %button.btn.btn-outline-primary
-                    = fa_icon "search"
                 = link_to edit_category_path(category), { title: t('shared.edit') } do
-                  %button.btn.btn-outline-success
+                  %button.btn.btn-outline-success.style_item
                     = fa_icon "edit"
                 = link_to category, { method: :delete, title: t('shared.delete') } do
-                  %button.btn.btn-outline-danger
+                  %button.btn.btn-outline-danger.style_item
                     = fa_icon "times"
-= link_to t('shared.add_new_item'), new_category_path, class: 'btn btn-outline-success'
+

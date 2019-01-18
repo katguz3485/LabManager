@@ -7,9 +7,15 @@
           %image.avatar_show_view{ :style => "background-image:url(#{avatar_path(current_user.avatar)})"}
           = @chemical.created_at.strftime('%Y-%m-%d')
         .row.pull-right
-          = link_to t('chemical.edit'), edit_chemical_path(@chemical), class: 'btn btn-outline-primary'
-          = link_to t('shared.delete'), chemical_path(@chemical), { method: :delete, class: 'btn btn-outline-danger'}
-          = link_to t('shared.add'), new_chemical_path(@chemical), class: 'btn btn-outline-success'
+          = link_to new_chemical_path(@chemical), { title: t('shared.edit') } do
+            %button.btn.btn-outline-success.style_item
+              = fa_icon "plus"
+          = link_to edit_chemical_path(@chemical), {title: "edit"} do
+            %button.btn.btn-outline-primary.style_item
+              = fa_icon "edit"
+          = link_to chemical_path(@chemical), { method: :delete, title: "delete"} do
+            %button.btn.btn-outline-danger.style_item
+              = fa_icon "trash"
       %table.table.table-condensed
         %tbody
           %tr
