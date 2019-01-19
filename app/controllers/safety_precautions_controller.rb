@@ -16,7 +16,7 @@ class ChemicalsController < ApplicationController
 
   def create
     @safety_precaution = SafetyPrecaution.new(safety_precaution_params)
-    if  @safety_precaution.save
+    if @safety_precaution.save
       redirect_to safety_precautions_path(@safety_precaution), notice: I18n.t('shared.created', resource: 'Hazard and Safety sheet')
     else
       flash.now.alert = I18n.t('shared.error_create')
@@ -27,7 +27,7 @@ class ChemicalsController < ApplicationController
   def edit; end
 
   def update
-    if  @safety_precaution.update(safety_precaution_params)
+    if @safety_precaution.update(safety_precaution_params)
       redirect_to safety_precaution(@safety_precaution), notice: t('shared.updated', resource: 'Hazard and Safety sheet')
     else
       render :edit

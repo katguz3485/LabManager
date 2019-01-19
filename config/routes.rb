@@ -10,6 +10,4 @@ Rails.application.routes.draw do
   resources :chemicals
   resources :categories
   resources :chemicals
-
-
 end
