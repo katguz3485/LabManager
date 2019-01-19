@@ -15,7 +15,7 @@ class ChemicalsController < ApplicationController
   end
 
   def create
-    @safety_precaution = Chemical.new(safety_precaution_params)
+    @safety_precaution = SafetyPrecaution.new(safety_precaution_params)
     if  @safety_precaution.save
       redirect_to safety_precautions_path(@safety_precaution), notice: I18n.t('shared.created', resource: 'Hazard and Safety sheet')
     else

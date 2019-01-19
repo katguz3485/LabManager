@@ -25,7 +25,7 @@ en:
     columns:
       name: Name
       cas_number: cas_number
-      place: Place
+      place: Location
       formula: "Formula"
       category: "Category"
       molecular_weight: "MW"

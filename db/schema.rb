@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_18_201043) do
+ActiveRecord::Schema.define(version: 2019_01_19_150241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,29 @@ ActiveRecord::Schema.define(version: 2019_01_18_201043) do
     t.datetime "updated_at", null: false
     t.bigint "category_id"
     t.index ["category_id"], name: "index_chemicals_on_category_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "item_owner"
+    t.integer "quantity"
+    t.float "amount"
+    t.string "comment"
+    t.string "daily_usage"
+    t.boolean "present_in_respiratory_zone", default: false
+    t.bigint "chemical_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chemical_id"], name: "index_items_on_chemical_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "room"
+    t.string "shelf"
+    t.string "number"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_locations_on_item_id"
   end
 
   create_table "safety_pracautions", force: :cascade do |t|
