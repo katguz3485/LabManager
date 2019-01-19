@@ -1,4 +1,4 @@
-class CreateSafetyPracautions < ActiveRecord::Migration[5.2]
+class CreateSafetyPracaution < ActiveRecord::Migration[5.2]
   def change
     create_table :safety_pracautions do |t|
       t.string :sds_file

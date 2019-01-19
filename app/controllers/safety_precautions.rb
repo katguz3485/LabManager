@@ -1,5 +1,0 @@
-class SafetyPrecautions < ApplicationController
-
-
-
-end
