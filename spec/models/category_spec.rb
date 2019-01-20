@@ -3,5 +3,22 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+
+  describe 'validations' do
+    it {is_expected.to validate_presence_of :category_name}
+    it {should validate_uniqueness_of(:category_name).case_insensitive}
+  end
+
+  describe 'associations' do
+    it {is_expected.to have_many :chemicals}
+  end
+
+  describe 'database_columns' do
+    it {is_expected.to have_db_column :category_name}
+  end
+
+
+
 end
+

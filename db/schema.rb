@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_19_150241) do
+ActiveRecord::Schema.define(version: 2019_01_20_190142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2019_01_19_150241) do
     t.index ["item_id"], name: "index_locations_on_item_id"
   end
 
-  create_table "safety_pracautions", force: :cascade do |t|
+  create_table "safety_precautions", force: :cascade do |t|
     t.string "sds_file"
     t.string "name_from_sds"
     t.string "pictogram"
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2019_01_19_150241) do
     t.bigint "chemical_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["chemical_id"], name: "index_safety_pracautions_on_chemical_id"
+    t.index ["chemical_id"], name: "index_safety_precautions_on_chemical_id"
   end
 
   create_table "user_providers", force: :cascade do |t|

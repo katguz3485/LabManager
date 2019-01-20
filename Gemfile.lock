@@ -769,7 +769,7 @@ GEM
     bootstrap4-kaminari-views (1.0.1)
       kaminari (>= 0.13)
       rails (>= 3.1)
-    bootstrap_form (4.0.0)
+    bootstrap_form (4.1.0)
       rails (>= 5.0)
     builder (3.2.3)
     byebug (10.0.2)
@@ -1196,7 +1196,7 @@ DEPENDENCIES
   sass-rails
   selenium-webdriver
   shoulda
-  shoulda-matchers (~> 3.1)
+  shoulda-matchers
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
