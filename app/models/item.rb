@@ -5,6 +5,4 @@ class Item < ApplicationRecord
   has_many :locations
 
   validates :item_owner, :quantity, :amount, presence: true
-
-
 end
