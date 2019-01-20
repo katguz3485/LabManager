@@ -1,0 +1,19 @@
+%h1 Listing safety_precautions
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @safety_precautions.each do |safety_precaution|
+      %tr
+        %td= link_to 'Show', safety_precaution
+        %td= link_to 'Edit', edit_safety_precaution_path(safety_precaution)
+        %td= link_to 'Destroy', safety_precaution, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Safety precaution', new_safety_precaution_path

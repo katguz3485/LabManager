@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_15_133657) do
+ActiveRecord::Schema.define(version: 2019_01_20_190142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,48 @@ ActiveRecord::Schema.define(version: 2019_01_15_133657) do
     t.datetime "updated_at", null: false
     t.bigint "category_id"
     t.index ["category_id"], name: "index_chemicals_on_category_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "item_owner"
+    t.integer "quantity"
+    t.float "amount"
+    t.string "comment"
+    t.string "daily_usage"
+    t.boolean "present_in_respiratory_zone", default: false
+    t.bigint "chemical_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chemical_id"], name: "index_items_on_chemical_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "room"
+    t.string "shelf"
+    t.string "number"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_locations_on_item_id"
+  end
+
+  create_table "safety_precautions", force: :cascade do |t|
+    t.string "sds_file"
+    t.string "name_from_sds"
+    t.string "pictogram"
+    t.string "storage_temperature_range"
+    t.string "signal_word"
+    t.string "h_codes"
+    t.string "h_statements"
+    t.string "p_codes"
+    t.string "p_statements"
+    t.string "adr_number"
+    t.string "adr_class"
+    t.string "adr_group"
+    t.bigint "chemical_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chemical_id"], name: "index_safety_precautions_on_chemical_id"
   end
 
   create_table "user_providers", force: :cascade do |t|
@@ -68,8 +110,7 @@ ActiveRecord::Schema.define(version: 2019_01_15_133657) do
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
   end
-  add_foreign_key "chemicals", "categories"
 
+  add_foreign_key "chemicals", "categories"
 end

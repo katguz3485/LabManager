@@ -17,8 +17,8 @@ category_list =
     ["Acids", "Acyl halides", "Alcohols", "Aldehydes and ketones", "Amines", "Amino acids",
      "Boronic acids", "Carbohydrates", "Carboxylic acids", "Dyes", "Elements", "Esters and amides", "Ethers", "Heterocyclic", "Hydrides",
      "Hydrocarbons", "Hydroxides", "Inorganic salts", "NMR Spectroscopy: solvents and reagents", "Organic anhydrides", "Organic halides", "Organometalic", "Other", "Oxides", "Palladium complexes", "Phenols",
-     "Phosphorus compounds", "Silicon compunds", "Solvents",
-     "Solvents, dry", "Solvents, special purity", "Sulfur compunds", "Nitriles"]
+     "Phosphorus compounds", "Silicon compounds", "Solvents",
+     "Solvents, dry", "Solvents, special purity", "Sulfur compounds", "Nitriles"]
 
 
 category_list.each do |name|
@@ -62,7 +62,7 @@ chemicals_list =
             cas_number: '65-85-0',
             canonical_smiles: 'O=[Os](=O)(=O)=O',
             inchi_key: 'WPYMKLBDIGXBTP-PTQBSOBMSA-N',
-            formula_picture: Faker::Avatar.image("my-own-slug", "50x50"),
+            formula_picture: Faker::Avatar.image("osmium tetroxide", "50x50"),
             category_id: 2
         }
     ]
@@ -71,6 +71,8 @@ chemicals_list =
 chemicals_list.each do |chemical|
   Chemical.create!(chemical)
 end
+
+
 
 
 puts 'Seeds created'
