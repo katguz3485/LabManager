@@ -15,6 +15,7 @@ class ChemicalsController < ApplicationController
   end
 
   def create
+
     @chemical = Chemical.new(chemical_params)
     if @chemical.save
       redirect_to chemical_path(@chemical), notice: I18n.t('shared.created', resource: 'Chemical')

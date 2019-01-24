@@ -23,22 +23,22 @@
             %td= @chemical.decorate.titleize_chemical_name
           %tr
             %td= t("chemical.columns.formula")
-            %td= @chemical.formula
+            %td= @chemical.decorate.show_molecular_formula
           %tr
             %td= t("chemical.columns.molecular_weight")
-            %td= @chemical.decorate.molecular_weight_formater(@chemical.molecular_weight)
+            %td= @chemical.decorate.molecular_weight_formatter
           %tr
             %td= t("chemical.columns.density")
-            %td= @chemical.decorate.density_formater(@chemical.density)
+            %td= @chemical.decorate.density_formatter(@chemical.density)
           %tr
             %td= t("chemical.columns.cas_number_formatted")
             %td= @chemical.cas_number
           %tr
             %td= t("chemical.columns.smiles")
-            %td= @chemical.canonical_smiles
+            %td= @chemical.decorate.show_canonical_smiles
           %tr
             %td= t("chemical.columns.inchi")
-            %td= @chemical.inchi_key
+            %td= @chemical.decorate.show_in_chi_key
 
 = link_to 'Edit', edit_chemical_path(@chemical), class: 'btn btn-outline-primary'
 = link_to 'Back', chemicals_path, class: 'btn btn-outline-primary'

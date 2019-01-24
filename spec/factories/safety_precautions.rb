@@ -10,8 +10,10 @@ FactoryBot.define do
     h_codes { "H#{Faker::Number.between(302...335)}" }
     h_statements { "#{h_codes} Fatal if inhaled." }
     p_codes { "P#{Faker::Number.between(200...380)}" }
-    p_statements { "#{p_codes} Keep away from heat, hot surfaces, sparks, open flames and other
-       ignition sources. No smoking" }
+    p_statements do
+      "#{p_codes} Keep away from heat, hot surfaces, sparks, open flames and other
+       ignition sources. No smoking"
+    end
     adr_number { 'n/a' }
     adr_class { 'Flammable solids, self-reactive substances, and solid desensitized explosives' }
     adr_group { 'n/a' }
