@@ -2,20 +2,24 @@
 
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
+
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_chemical
 
   def index
-    @categories = Category.all
+    @categories = Category.all.order(created_at: :desc)
   end
 
-  def show; end
+  def show;
+
+  end
 
   def new
-    @category = Category.new
+    @category = current_user.categories.build
   end
 
   def create
-    @category = Category.new(category_params)
+    @category = current_user.categories.build(category_params)
     if @category.save
       redirect_to category_path(@category)
     else
@@ -24,7 +28,8 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit;
+  end
 
   def update
     if @category.update
@@ -42,10 +47,17 @@ class CategoriesController < ApplicationController
   private
 
   def set_category
-    @category = Category.find(params[:id])
+    @category = current_user.categories.find(params[:id])
+  end
+
+  def set_chemical
+    @chemical = @category.chemicals.find(params[:chemical_id])
   end
 
   def category_params
     params.require(:category).permit(:category_name)
   end
+
+
+
 end

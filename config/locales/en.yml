@@ -36,5 +36,6 @@ en:
       smiles: "Smiles"
       image: "Structure"
       cas_number_formatted: "CAS"
+      molecular_weight2: "MolecularWeight"
     edit: "Edit"
 

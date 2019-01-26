@@ -1,17 +1,16 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 require 'faker'
 
-puts 'Seeds creation started'
+Rails.logger = Logger.new(STDOUT)
+Rails.logger.info "Creating seeds"
 
-User.create!(email: 'admin@admin.com', password: 'adminadmin')
-
+user = User.new(
+    :email => 'admin@admin.com',
+    :password => "adminadmin",
+    :username => 'admin1234',
+    :avatar => Faker::Avatar.image("my-own-slug", "50x50")
+)
+user.skip_confirmation!
+user.save!
 
 category_list =
     ["Acids", "Acyl halides", "Alcohols", "Aldehydes and ketones", "Amines", "Amino acids",
@@ -22,11 +21,11 @@ category_list =
 
 
 category_list.each do |name|
-  Category.create!(category_name: name)
+  Category.create!(category_name: name, user_id: 1)
 end
 
-chemicals_list =
 
+chemicals_list =
     [
         {chemical_name: "benzoic acid",
          formula: 'C7H6O2',
@@ -37,7 +36,6 @@ chemicals_list =
          inchi_key: 'WPYMKLBDIGXBTP-PTQBSOBMSA-N',
          formula_picture: Faker::Avatar.image("benzoic_acid", "50x50"),
          category_id: 1
-
         },
 
         {
@@ -52,8 +50,6 @@ chemicals_list =
             category_id: 2
 
         },
-
-
         {
             chemical_name: "osmium tetroxide",
             formula: 'OsO4',
@@ -67,13 +63,48 @@ chemicals_list =
         }
     ]
 
+=begin
+Category.all.each do |category|
+  category.chemicals.create!(chemical_name: chemicals_list[:chemical_name].sample,
+                             formula: category_list[:formula].sa,
+  )
+end
+=end
 
-chemicals_list.each do |chemical|
-  Chemical.create!(chemical)
+Chemical.all.each do |chemical|
+  3.times do
+    chemical.items.create!(
+        item_owner: "Biological Chemistry and Drug Development Group",
+        amount: 1.5,
+        comment: "It should be store in the fridge",
+        daily_usage: "5-10 mg"
+    )
+    chemical.safety_precaution.create!(
+        sds_file: "61-54-1_msds.pdf",
+        name_from_sds: "",
+        pictogram: "",
+        storage_temperature_range: "5-10 st",
+        signal_word: "Uwaga",
+        h_codes: "H201",
+        h_statements: "Explosive; mass explosion hazard",
+        p_codes: "P333 + P313",
+        p_statements: "If skin irritation or rash occurs: Get medical advice/attention.",
+        adr_number: "",
+        adr_class: "",
+        adr_group: ""
+    )
+  end
+end
+
+Items.all.each do |item|
+  item.locations.create!(
+      room: "F2-35",
+      shelf: "F11-A",
+      number: "1a",
+  )
+
 end
 
 
-
-
-puts 'Seeds created'
+Rails.logger.info 'Seeds created'
 

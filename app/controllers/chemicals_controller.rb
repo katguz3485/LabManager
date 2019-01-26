@@ -2,21 +2,23 @@
 
 class ChemicalsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_safety_precaution
+  before_action :set_item
   before_action :set_chemical, only: [:show, :edit, :update, :destroy]
 
   def index
-    @chemicals = Chemical.all
+    @chemicals = @category.chemicals
   end
 
-  def show; end
+  def show;
+  end
 
   def new
-    @chemical = Chemical.new
+    @chemical = @category.chemicals.build
   end
 
   def create
-
-    @chemical = Chemical.new(chemical_params)
+    @chemical = @category.chemicals.build(chemical_params)
     if @chemical.save
       redirect_to chemical_path(@chemical), notice: I18n.t('shared.created', resource: 'Chemical')
     else
@@ -25,7 +27,8 @@ class ChemicalsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit;
+  end
 
   def update
     if @chemical.update(chemical_params)
@@ -43,10 +46,28 @@ class ChemicalsController < ApplicationController
   private
 
   def set_chemical
-    @chemical = Chemical.find(params[:id])
+    @chemical = @category.chemicals.find(params[:id])
   end
 
-  def chemical_params
-    params.require(:chemical).permit(:chemical_name, :formula, :molecular_weight, :density, :cas_number, :canonical_smiles, :inchi_key, :user_id, :formula_picture)
+  def set_item
+    @item = @chemical.items.find[:item_id]
   end
-end
+
+  def set_safety_precaution
+    @safety_precaution = @chemical.safety_precautions.find[:safety_precaution_id]
+  end
+
+
+
+  def chemical_params
+    params.require(:chemical).permit(:chemical_name,
+                                     :formula,
+                                     :molecular_weight,
+                                     :density,
+                                     :cas_number,
+                                     :canonical_smiles,
+                                     :inchi_key,
+                                     :formula_picture)
+  end
+
+  end
