@@ -23,5 +23,5 @@
                 %td= chemical.cas_number
                 %td= chemical.created_at
 
-= link_to t('shared.add_new_item'), new_chemical_path, class: 'btn btn-primary'
+= link_to t('shared.add_new_item'), new_category_chemical_path(@category, @chemical), class: 'btn btn-primary'
 

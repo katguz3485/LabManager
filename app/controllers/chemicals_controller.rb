@@ -11,7 +11,6 @@ class ChemicalsController < ApplicationController
   end
 
   def show;
-
   end
 
   def new
@@ -51,7 +50,7 @@ class ChemicalsController < ApplicationController
   end
 
   def set_category
-    @category = current_user.categories.find(params[:category_id])
+    @category = Category.find(params[:category_id])
   end
 
 
