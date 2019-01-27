@@ -16,7 +16,7 @@ RSpec.describe Chemical, type: :model do
     it { is_expected.to have_many :items }
     it { is_expected.to have_one :safety_precaution }
     it { is_expected.to belong_to :category }
-    # it {should belong_to(:category).optional(true)}
+    it {should belong_to(:category)}
   end
 
   describe 'database_columns' do
@@ -27,7 +27,6 @@ RSpec.describe Chemical, type: :model do
     it { is_expected.to have_db_column :cas_number }
     it { is_expected.to have_db_column :canonical_smiles }
     it { is_expected.to have_db_column :inchi_key }
-    it { is_expected.to have_db_column :user_id }
     it { is_expected.to have_db_column :formula_picture }
     it { is_expected.to have_db_column :category_id }
     it { is_expected.to have_db_column :created_at }

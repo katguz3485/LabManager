@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :confirmable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:github, :google, :facebook]
 
   has_many :user_providers, dependent: :destroy
+  has_many :categories
 
   validates :email, uniqueness: true
 

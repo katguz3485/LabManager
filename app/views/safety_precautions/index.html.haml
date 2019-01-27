@@ -8,7 +8,7 @@
       %th
 
   %tbody
-    - @safety_precautions.each do |safety_precaution|
+    - @safety_precaution.each do |safety_precaution|
       %tr
         %td= link_to 'Show', safety_precaution
         %td= link_to 'Edit', edit_safety_precaution_path(safety_precaution)

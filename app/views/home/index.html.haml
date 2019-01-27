@@ -17,7 +17,7 @@
                   %p
                 .row.extra-space
                   .col-md-6.mx-auto
-                    = form_tag chemicals_path, method: :get do
+                    = form_tag categories_path, method: :get do
                       .input-group
                         = text_field_tag :search, nil, class: 'form-control', placeholder: 'Enter a cas number'
                         %span.input-group-btn

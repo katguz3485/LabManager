@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_20_190142) do
+ActiveRecord::Schema.define(version: 2019_01_26_131705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
     t.string "category_name"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
   create_table "chemicals", force: :cascade do |t|
@@ -27,7 +29,6 @@ ActiveRecord::Schema.define(version: 2019_01_20_190142) do
     t.string "cas_number"
     t.string "canonical_smiles"
     t.string "inchi_key"
-    t.integer "user_id"
     t.string "formula_picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -112,5 +113,6 @@ ActiveRecord::Schema.define(version: 2019_01_20_190142) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "users"
   add_foreign_key "chemicals", "categories"
 end

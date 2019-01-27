@@ -22,6 +22,7 @@ gem 'fog-aws', require: true
 gem 'font-awesome-rails'
 gem 'haml-rails', '~> 1.0'
 gem 'html2haml'
+gem 'httparty'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'momentjs-rails'
