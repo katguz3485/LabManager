@@ -32,6 +32,7 @@ gem 'omniauth-google-oauth2',       '~> 0.5.1' # for Google Authentication
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.1'
+gem 'ransack'
 gem 'redis', '~> 4.0'
 gem 'rubocop'
 gem 'sass-rails'

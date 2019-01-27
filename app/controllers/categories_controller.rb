@@ -32,7 +32,7 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params)
-      redirect to @category
+      redirect to categories_path
     else
       flash.now.alert = I18n.t('shared.updated')
     end
@@ -50,8 +50,7 @@ class CategoriesController < ApplicationController
   end
 
   def set_category
-
-    @category = Category.find(params[:id])
+    @category ||= Category.find(params[:id])
   end
 
 
