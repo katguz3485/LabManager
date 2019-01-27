@@ -1,27 +1,17 @@
-.row
-  .col.md-12
-    .carousel#dashboard-carousel.slide.backgrounds-carousel{ data: { ride: 'slide' }}
-      .carousel-inner
-        - (1..2).each do |i|
-          .carousel-item{ class: "#{i == 1 ? 'active' : ''}" }
-            .d-block.background-slide{ class: "background-slide-#{i}" }
-              .carousel-caption.d-none.d-md-block
-                %h2 Organize your research items
-                %h4 Manage your lab with ease
-                %a.carousel-control-prev{ href: '#dashboard-carousel', role: 'button', data: { slide: 'prev' }}
-                  %span.carousel-control-prev-icon{ 'aria-hidden' => 'true'}
-                  %span.sr-only Previous
-                %a.carousel-control-next{ href: '#dashboard-carousel', role: 'button', data: { slide: 'next' }}
-                  %span.carousel-control-next-icon{ 'aria-hidden' => 'true'}
-                  %span.sr-only Next
-                  %p
-                .row.extra-space
-                  .col-md-6.mx-auto
-                    = form_tag categories_path, method: :get do
-                      .input-group
-                        = text_field_tag :search, nil, class: 'form-control', placeholder: 'Enter a cas number'
-                        %span.input-group-btn
-                          = submit_tag 'Search', class: 'btn btn-secondary'
+=render "carousel"
+.jumbotron
+  %h3.display-3
+  .list-group
+    %a.list-group-item.list-group-item-action.active{:href => "#"}
+      %h4 Search Chemical
+    %a.list-group-item.list-group-item-action
+      =render 'search_field'
+  %p.lead This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
+  %hr.my-4/
+  %p.lead
+
+
+
 
 
 

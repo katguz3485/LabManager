@@ -1,0 +1,22 @@
+.col.md-12.frame-form
+  %table.table.table-condensed
+    %thead
+    %tr
+      %td
+        = form_tag categories_path, method: :get do
+          .input-group
+            = text_field_tag :search, nil, class: 'form-control', placeholder: 'Enter name of searched compound'
+            %span.input-group-btn
+              = submit_tag 'Search', class: 'btn btn-secondary'
+
+        = form_tag categories_path, method: :get do
+          .input-group
+            = text_field_tag :search, nil, class: 'form-control', placeholder: 'Enter a cas number'
+            %span.input-group-btn
+              = submit_tag 'Search', class: 'btn btn-secondary'
+
+        = form_tag categories_path, method: :get do
+          .input-group
+            = text_field_tag :search, nil, class: 'form-control', placeholder: 'Search by category'
+            %span.input-group-btn
+              = submit_tag 'Search', class: 'btn btn-secondary'
