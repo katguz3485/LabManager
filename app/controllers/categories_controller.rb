@@ -2,12 +2,11 @@
 
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
-
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  before_action :set_chemical
+
 
   def index
-    @categories = Category.all.order(created_at: :desc)
+    @categories = Category.all
   end
 
   def show;
@@ -21,7 +20,7 @@ class CategoriesController < ApplicationController
   def create
     @category = current_user.categories.build(category_params)
     if @category.save
-      redirect_to category_path(@category)
+      redirect_to @category
     else
       flash.now.alert = I18n.t('shared.error_create')
       render :new
@@ -32,8 +31,8 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    if @category.update
-      redirect to category_path
+    if @category.update(category_params)
+      redirect to @category
     else
       flash.now.alert = I18n.t('shared.updated')
     end
@@ -46,18 +45,14 @@ class CategoriesController < ApplicationController
 
   private
 
-  def set_category
-    @category = current_user.categories.find(params[:id])
-  end
-
-  def set_chemical
-    @chemical = @category.chemicals.find(params[:chemical_id])
-  end
-
   def category_params
-    params.require(:category).permit(:category_name)
+    params.require(:category).permit(:category_name, :user_id)
   end
 
+  def set_category
+
+    @category = Category.find(params[:id])
+  end
 
 
 end

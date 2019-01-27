@@ -58,8 +58,6 @@ class ItemsController < ApplicationController
     @category = current_user.categories.find(params[:category_id])
   end
 
-
-
   def item_params
     params.require(:item).permit(:item_owner,
                                  :quantity,

@@ -2,7 +2,7 @@
 
 class Chemical < ApplicationRecord
 
-  belongs_to :category, optional: true
+  belongs_to :category
   has_one :safety_precaution
   has_many :items
   validates :chemical_name, presence: true, uniqueness: { case_sensitive: false }
