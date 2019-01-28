@@ -4,22 +4,19 @@ class ChemicalDecorator < BaseDecorator
   delegate_all
   include Draper::LazyHelpers
 
-=begin
-
-  def initialize(object, options = {})
-    @details = PubChemService.new(object).cas_to_cid
-    @property = PubChemService.new(object).find_properties(@details)
-
-    super
-  end
-=end
+  #
+  #   def initialize(object, options = {})
+  #     @details = PubChemService.new(object).cas_to_cid
+  #     @property = PubChemService.new(object).find_properties(@details)
+  #
+  #     super
+  #   end
 
   def unit_of_measurement_adder(resource, unit)
     resource.concat(' ', unit)
   end
 
   def molecular_weight_formatter
-
     molecular_weight = molecular_weight.to_s
     molecular_weight.nil? ? '-' : unit_of_measurement_adder(molecular_weight, 'g/mol')
   end
@@ -32,8 +29,6 @@ class ChemicalDecorator < BaseDecorator
   def titleize_chemical_name
     chemical.present? ? chemical.decorate.chemical_name.to_s.titleize : '-'
   end
-
-
 
   def formula_formater(formula)
     # TODO implement this

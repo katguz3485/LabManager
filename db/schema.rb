@@ -115,4 +115,5 @@ ActiveRecord::Schema.define(version: 2019_01_26_131705) do
 
   add_foreign_key "categories", "users"
   add_foreign_key "chemicals", "categories"
+
 end

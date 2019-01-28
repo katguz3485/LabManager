@@ -9,64 +9,57 @@ class PubChemService
 
   def initialize(property)
     @property = property
-    #@name = @chemical.chemical_name
-
+    # @name = @chemical.chemical_name
   end
 
   def cas_to_cid(cas)
     response = self.class.get("/compound/name/#{cas}/cids/JSON")
     if response.success?
-      result = response["IdentifierList"]["CID"]
+      result = response['IdentifierList']['CID']
     else
       raise response.response
     end
-    cid = result.join("")
+    cid = result.join('')
   end
 
-=begin
-  def name_to_cid(name = @chemical.chemical_name)
-
-    name
-  end
-=end
-
+  #   def name_to_cid(name = @chemical.chemical_name)
+  #
+  #     name
+  #   end
 
   def find_properties(cid)
     response = self.class.get("/compound/cid/#{cid}/property/IUPACName,MolecularWeight,MolecularFormula,InChIKey,CanonicalSMILES/JSON")
     if response.success?
-      response["PropertyTable"]["Properties"]
+      response['PropertyTable']['Properties']
     else
       raise response.response
     end
-    @property = to_hash_object(response["PropertyTable"]["Properties"])
-    #binding.pry
+    @property = to_hash_object(response['PropertyTable']['Properties'])
+    # binding.pry
   end
 
   def to_hash_object(property)
-    property = JSON.parse(property.join(",").gsub(/:([a-zA-z]+)/, '"\\1"').gsub('=>', ': ')).stringify_keys
+    property = JSON.parse(property.join(',').gsub(/:([a-zA-z]+)/, '"\\1"').gsub('=>', ': ')).stringify_keys
     property
   end
 
   def show_molecular_weight
-    @property["MolecularWeight"]
+    @property['MolecularWeight']
   end
 
   def show_iupac_name
-    @property["IUPACName"]
+    @property['IUPACName']
   end
 
   def show_molecular_formula
-    @property["MolecularFormula"]
+    @property['MolecularFormula']
   end
 
   def show_in_chi_key
-    @property["InChIKey"]
+    @property['InChIKey']
   end
 
   def show_canonical_smiles
-    @property["CanonicalSMILES"]
+    @property['CanonicalSMILES']
   end
-
 end
-
-

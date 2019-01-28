@@ -1,5 +1,5 @@
 %h3 Editing chemical
 
 = render 'form'
-= link_to 'Show', @chemical, class: 'btn-btn-primary'
-= link_to 'Back',category_chemicals_path(@category, @chemicals), class: 'btn-btn-primary'
+= link_to 'Show', category_chemical_path(@chemical.category_id, @chemical), class: 'btn-btn-primary'
+= link_to 'Back', chemicals_path, class: 'btn-btn-primary'

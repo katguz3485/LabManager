@@ -2,13 +2,13 @@
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     %h2.text-center Sign in
     .form-inputs
-      = f.input :email,
-        required: false,
-        autofocus: true,
-        input_html: {autocomplete: "email"}
-      = f.input :password,
-        required: false,
-        input_html: {autocomplete: "current-password"}
+      = f.input :email,                     |
+        required: false,                    |
+        autofocus: true,                    |
+        input_html: {autocomplete: "email"} |
+      = f.input :password,                             |
+        required: false,                               |
+        input_html: {autocomplete: "current-password"} |
       = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
     .form-group
       .form-actions
@@ -22,5 +22,5 @@
               %i{:class => "fa fa-#{provider}"}
               Sign in with
               %b= provider.to_s.camelize
-              %br
+              %br/
     = render 'links_sign_in'
