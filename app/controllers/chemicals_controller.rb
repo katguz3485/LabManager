@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChemicalsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_category, only: [:new, :edit, :update, :delete]
@@ -8,8 +10,7 @@ class ChemicalsController < ApplicationController
     @chemicals = @q.result(distinct: true)
   end
 
-  def show;
-  end
+  def show; end
 
   def new
     @chemical = @category.chemicals.build
@@ -25,8 +26,7 @@ class ChemicalsController < ApplicationController
     end
   end
 
-  def edit;
-  end
+  def edit; end
 
   def update
     if @chemical.update(chemical_params)
@@ -47,10 +47,9 @@ class ChemicalsController < ApplicationController
     @chemical = Chemical.find(params[:id])
   end
 
-
   def set_category
-    #@category = Category.includes(:chemicals).find(params[:category_id])
-    #@dam = Dam.includes(:fish_counts, :fish).find(params[:dam_id])
+    # @category = Category.includes(:chemicals).find(params[:category_id])
+    # @dam = Dam.includes(:fish_counts, :fish).find(params[:dam_id])
     @category = Category.find(params[:category_id])
   end
 
@@ -65,5 +64,4 @@ class ChemicalsController < ApplicationController
                                      :formula_picture,
                                      :category_id)
   end
-
 end

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ItemsController < ApplicationController
-
   before_action :authenticate_user!
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_chemical
@@ -11,8 +10,7 @@ class ItemsController < ApplicationController
     @item = @chemical.items
   end
 
-  def show;
-  end
+  def show; end
 
   def new
     @item = @chemical.items.build
@@ -28,8 +26,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit;
-  end
+  def edit; end
 
   def update
     if @item.update(safety_precaution_params)
@@ -65,9 +62,4 @@ class ItemsController < ApplicationController
                                  :comment,
                                  :daily_usage)
   end
-
 end
-
-
-
-

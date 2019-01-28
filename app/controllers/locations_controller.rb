@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class LocationsController < ApplicationController
-
   before_action :authenticate_user!
   before_action :set_location, only: [:show, :edit, :update, :destroy]
   before_action :set_item
@@ -12,8 +11,7 @@ class LocationsController < ApplicationController
     @location = @item.locations
   end
 
-  def show;
-  end
+  def show; end
 
   def new
     @location = @item.locations.build
@@ -29,8 +27,7 @@ class LocationsController < ApplicationController
     end
   end
 
-  def edit;
-  end
+  def edit; end
 
   def update
     if @location.update(safety_precaution_params)
@@ -57,7 +54,6 @@ class LocationsController < ApplicationController
 
   def set_chemical
     @chemical = @category.chemicals.find(params[:chemical_id])
-
   end
 
   def set_category
@@ -68,11 +64,5 @@ class LocationsController < ApplicationController
     params.require(:item).permit(:room,
                                  :shelf,
                                  :number)
-
   end
-
 end
-
-
-
-

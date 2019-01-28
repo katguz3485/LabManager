@@ -5,8 +5,8 @@
         %tr
 
           %th= t('chemical.columns.image')
-          %th= t('chemical.columns.name')
-          %th= t('chemical.columns.category')
+          %th= sort_link(@q, :chemical_name, t('chemical.columns.name'))
+          %th= sort_link(@q, :category_name, t('chemical.columns.category'))
           %th= t('chemical.columns.smiles')
           %th= t('chemical.columns.formula')
           %th= t('chemical.columns.molecular_weight')

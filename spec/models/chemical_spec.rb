@@ -16,7 +16,7 @@ RSpec.describe Chemical, type: :model do
     it { is_expected.to have_many :items }
     it { is_expected.to have_one :safety_precaution }
     it { is_expected.to belong_to :category }
-    it {should belong_to(:category)}
+    it { should belong_to(:category) }
   end
 
   describe 'database_columns' do
