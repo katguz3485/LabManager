@@ -9,8 +9,13 @@ Rails.application.routes.draw do
   get '/auth/failure' => 'omniauth_callbacks#failure'
 
   resources :categories do
-    resources :chemicals, shallow: true
+    resources :chemicals, only: [:show, :new,
+                                 :edit, :update, :destroy, :create]
   end
+
+  get '/chemicals', to: 'chemicals#index'
+
+  #resources :chemicals
 
   resources :safety_precautions
 

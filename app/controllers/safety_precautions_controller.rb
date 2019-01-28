@@ -60,7 +60,10 @@ class SafetyPrecautionsController < ApplicationController
 
 
   def safety_precaution_params
-    params.require(:safety_precaution).permit(:sds_file, :name_from_sds, :pictogram, :storage_temperature_range, :signal_word, :h_codes, :h_statements, :p_codes, :p_statements, :adr_number, :adr_class, :adr_group)
+    params.require(:safety_precaution).permit(:sds_file, :name_from_sds, :pictogram,
+                                              :storage_temperature_range, :signal_word,
+                                              :h_codes, :h_statements, :p_codes, :p_statements,
+                                              :adr_number, :adr_class, :adr_group)
   end
 
 end

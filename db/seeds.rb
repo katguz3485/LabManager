@@ -27,9 +27,13 @@ category_list.each do |category|
   Category.create!(category_name: category, user_id: Faker::Number.between(1, 5))
 end
 
+chemical_names_list = ["Sodium cyanide", "Potassium cyanide", "Butyric acid", "Pentanoic acid", "Methanol", "Ethanol",
+                       "Acetic acid", "Acetic anhydride", "Formic acid"]
+
+
 chemicals_list =
     [
-        {chemical_name: Faker::Name.name,
+        {chemical_name: "Sodium cyanide",
          formula: 'C7H6O2',
          molecular_weight: 122.12,
          density: 0,
@@ -41,7 +45,7 @@ chemicals_list =
         },
 
         {
-            chemical_name: Faker::Name.name,
+            chemical_name: "Butyric acid",
             formula: 'C10H12N2',
             molecular_weight: 160.216,
             density: 0,
@@ -53,7 +57,7 @@ chemicals_list =
 
         },
         {
-            chemical_name: Faker::Name.name,
+            chemical_name: "Acetic anhydride",
             formula: 'OsO4',
             molecular_weight: 254.226,
             density: 0,

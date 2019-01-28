@@ -5,7 +5,7 @@
       %td
         = form_tag categories_path, method: :get do
           .input-group
-            = text_field_tag :search, nil, class: 'form-control', placeholder: 'Enter name of searched compound'
+            = text_field_tag :q, params[:q], class: 'form-control', placeholder: 'Enter name of searched compound'
             %span.input-group-btn
               = submit_tag 'Search', class: 'btn btn-secondary'
 
@@ -20,3 +20,4 @@
             = text_field_tag :search, nil, class: 'form-control', placeholder: 'Search by category'
             %span.input-group-btn
               = submit_tag 'Search', class: 'btn btn-secondary'
+
