@@ -6,11 +6,12 @@ class CategoriesController < ApplicationController
 
 
   def index
-    @q= Category.search(params[:q])
+    @q= Category.ransack(params[:q])
     @categories = @q.result.includes(:chemicals)
   end
 
   def show;
+
 
   end
 

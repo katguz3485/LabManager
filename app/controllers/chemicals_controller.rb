@@ -4,7 +4,7 @@ class ChemicalsController < ApplicationController
   before_action :set_chemical, only: [:show, :edit, :update, :destroy]
 
   def index
-    @q = Chemical.search(params[:q])
+    @q = Chemical.ransack(params[:q])
     @chemicals = @q.result(distinct: true)
   end
 
@@ -13,7 +13,6 @@ class ChemicalsController < ApplicationController
 
   def new
     @chemical = @category.chemicals.build
-
   end
 
   def create

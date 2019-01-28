@@ -3,21 +3,15 @@
     %thead
     %tr
       %td
-        = form_tag categories_path, method: :get do
+        = search_form_for @q, html: {class: "form-tag"} do |f|
           .input-group
-            = text_field_tag :q, params[:q], class: 'form-control', placeholder: 'Enter name of searched compound'
+            = f.search_field :chemical_name_cont, placeholder: 'Enter name of searched compound', class: "form-control"
             %span.input-group-btn
-              = submit_tag 'Search', class: 'btn btn-secondary'
+              = f.submit "Search", class: 'btn btn-secondary'
+        = search_form_for @q, html: {class: "form-tag"} do |f|
+          .input-group
+            = f.search_field :cas_number_cont, placeholder: 'Enter CAS of searched compound', class: "form-control"
+            %span.input-group-btn
+              = f.submit "Search", class: 'btn btn-secondary'
 
-        = form_tag categories_path, method: :get do
-          .input-group
-            = text_field_tag :search, nil, class: 'form-control', placeholder: 'Enter a cas number'
-            %span.input-group-btn
-              = submit_tag 'Search', class: 'btn btn-secondary'
-
-        = form_tag categories_path, method: :get do
-          .input-group
-            = text_field_tag :search, nil, class: 'form-control', placeholder: 'Search by category'
-            %span.input-group-btn
-              = submit_tag 'Search', class: 'btn btn-secondary'
 
