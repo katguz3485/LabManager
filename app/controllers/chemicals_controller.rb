@@ -2,7 +2,7 @@
 
 class ChemicalsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_category, only: [:new, :edit, :update, :delete]
+  before_action :set_category, only: [:new, :create, :edit, :update, :delete]
   before_action :set_chemical, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -10,14 +10,18 @@ class ChemicalsController < ApplicationController
     @chemicals = @q.result(distinct: true)
   end
 
-  def show; end
+  def show;
+  end
 
   def new
     @chemical = @category.chemicals.build
   end
 
+  #@document = Document.new(document_params)
+  #@document.bucket = Bucket.first
   def create
-    @chemical = @category.chemicals.build(chemical_params)
+   @chemical = @category.chemicals.build(chemical_params)
+   @chemical.category = Category.first
     if @chemical.save
       redirect_to chemicals_path, notice: I18n.t('shared.created', resource: 'Chemical')
     else
@@ -26,7 +30,8 @@ class ChemicalsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit;
+  end
 
   def update
     if @chemical.update(chemical_params)
@@ -48,9 +53,7 @@ class ChemicalsController < ApplicationController
   end
 
   def set_category
-    # @category = Category.includes(:chemicals).find(params[:category_id])
-    # @dam = Dam.includes(:fish_counts, :fish).find(params[:dam_id])
-    @category = Category.find(params[:category_id])
+     @category = Category.find(params[:category_id])
   end
 
   def chemical_params
@@ -64,4 +67,11 @@ class ChemicalsController < ApplicationController
                                      :formula_picture,
                                      :category_id)
   end
+
+
+  def download
+    redirect_to @chemical.download_url
+  end
+
+
 end

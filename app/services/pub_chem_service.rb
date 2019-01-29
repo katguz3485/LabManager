@@ -5,7 +5,7 @@ class PubChemService
 
   base_uri 'https://pubchem.ncbi.nlm.nih.gov/rest/pug'
 
-  attr_accessor :cid, :cas
+  attr_accessor :cas
 
   def initialize(property)
     @property = property

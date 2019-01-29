@@ -6,6 +6,8 @@
           %p Created by
           %image.avatar_show_view{ :style => "background-image:url(#{avatar_path(current_user.avatar)})"}
           = @chemical.created_at.strftime('%Y-%m-%d')
+        .row.pull-left
+          = #image_tag @chemical.formula_picture.url, size: "50 x 50"
         .row.pull-right
           = link_to new_category_chemical_path(@chemical.category_id, @chemical), { title: t('shared.edit') } do
             %button.btn.btn-outline-success.btn_margin
@@ -20,9 +22,9 @@
         %tbody
           %tr
             %td= t("chemical.columns.name")
-            %td= @chemical.decorate.titleize_chemical_name
-            %td
-            %td
+            %td= @chemical.chemical_name
+            %td= t("chemical.columns.image_url")
+            %td= link_to 'Download', category_chemical_downloads_path(@chemical.category_id, @chemical), class: "btn-outline-primary"
           %tr
             %td= t("chemical.columns.formula")
             %td= @chemical.formula
@@ -41,4 +43,3 @@
 
 = link_to 'Edit', edit_category_chemical_path(@chemical), class: 'btn btn-outline-primary'
 = link_to 'Back', chemicals_path, class: 'btn btn-outline-primary'
-

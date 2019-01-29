@@ -37,5 +37,6 @@ en:
       image: "Structure"
       cas_number_formatted: "CAS"
       molecular_weight2: "MolecularWeight"
+      image_url: "Image url"
     edit: "Edit"
 
