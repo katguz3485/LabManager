@@ -3,13 +3,13 @@ require 'carrierwave/storage/fog'
 if Rails.env.test? or Rails.env.cucumber?
   CarrierWave.configure do |config|
     config.storage = :file
-    config.enable_processing = false
+    config.enable_processing = true
     config.root = "#{Rails.root}/tmp"
     config.cache_dir = "#{Rails.root}/tmp/"
   end
 else
   CarrierWave.configure do |config|
-    config.fog_public = false
+    config.fog_public = true
     config.fog_authenticated_url_expiration = 30
     config.fog_provider = 'fog/aws'
     config.fog_credentials = {

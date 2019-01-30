@@ -71,3 +71,5 @@ en:
   category:
     columns:
       name: "Name"
+  sidebar:
+    title: "Control Panel"

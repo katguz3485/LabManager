@@ -2,7 +2,7 @@
 
 class ChemicalsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_category, only: [:new, :create, :edit, :update, :delete]
+  before_action :set_category, only: [:new, :create, :show, :edit, :update, :delete]
   before_action :set_chemical, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -11,6 +11,7 @@ class ChemicalsController < ApplicationController
   end
 
   def show;
+
   end
 
   def new
@@ -28,7 +29,8 @@ class ChemicalsController < ApplicationController
     end
   end
 
-  def edit;
+  def edit
+
   end
 
   def update
