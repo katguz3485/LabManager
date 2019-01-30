@@ -17,8 +17,6 @@ class ChemicalsController < ApplicationController
     @chemical = @category.chemicals.build
   end
 
-  #@document = Document.new(document_params)
-  #@document.bucket = Bucket.first
   def create
    @chemical = @category.chemicals.build(chemical_params)
    @chemical.category = Category.first
@@ -53,7 +51,7 @@ class ChemicalsController < ApplicationController
   end
 
   def set_category
-     @category = Category.find(params[:category_id])
+    @category = Category.find(params[:category_id])
   end
 
   def chemical_params
@@ -69,9 +67,6 @@ class ChemicalsController < ApplicationController
   end
 
 
-  def download
-    redirect_to @chemical.download_url
-  end
 
 
 end

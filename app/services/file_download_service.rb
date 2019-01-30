@@ -4,13 +4,9 @@ class FileDownloadService
     @chemical = chemical
   end
 
-  def download_formula_file
-    redirect_to @chemical.download_url
+  def call
+    @chemical.formula_picture.file.authenticated_url
   end
-
-
-
-
 
 
 end

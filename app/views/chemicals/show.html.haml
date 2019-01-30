@@ -24,7 +24,7 @@
             %td= t("chemical.columns.name")
             %td= @chemical.chemical_name
             %td= t("chemical.columns.image_url")
-            %td= link_to 'Download', category_chemical_downloads_path(@chemical.category_id, @chemical), class: "btn-outline-primary"
+            %td= link_to 'Download', @chemical.file_download, class: "btn-outline-primary"
           %tr
             %td= t("chemical.columns.formula")
             %td= @chemical.formula
