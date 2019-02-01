@@ -30,6 +30,9 @@ class ChemicalDecorator < BaseDecorator
     chemical.present? ? chemical.decorate.chemical_name.to_s.titleize : '-'
   end
 
+  def download_picture
+    ChemicalServices::FileDownloadService.new(self).call
+  end
 
 
 

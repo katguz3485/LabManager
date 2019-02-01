@@ -11,9 +11,6 @@ class Chemical < ApplicationRecord
   attr_accessor :file_download, :process_original_version
 
 
-  def download_picture
-    FileDownloadService.new(self).call
-  end
 
 
 

@@ -868,6 +868,8 @@ GEM
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gretel (3.0.9)
+      rails (>= 3.1.0)
     guard (2.15.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -1183,6 +1185,7 @@ DEPENDENCIES
   faker!
   fog-aws
   font-awesome-rails
+  gretel
   guard-livereload (~> 2.5.2)
   guard-rubocop
   haml-rails (~> 1.0)

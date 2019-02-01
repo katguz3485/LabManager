@@ -12,6 +12,7 @@ class ChemicalsController < ApplicationController
 
   def show;
 
+
   end
 
   def new
@@ -19,8 +20,8 @@ class ChemicalsController < ApplicationController
   end
 
   def create
-   @chemical = @category.chemicals.build(chemical_params)
-   @chemical.category = Category.first
+    @chemical = @category.chemicals.build(chemical_params)
+    @chemical.category = Category.first
     if @chemical.save
       redirect_to chemicals_path, notice: I18n.t('shared.created', resource: 'Chemical')
     else
@@ -67,8 +68,6 @@ class ChemicalsController < ApplicationController
                                      :formula_picture,
                                      :category_id)
   end
-
-
 
 
 end
