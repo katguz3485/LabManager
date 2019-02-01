@@ -1,0 +1,34 @@
+%a.list-group-item.list-group-item-action.active{:href => "#"}
+  %h4 Identification
+  %a.list-group-item.list-group-item-action
+    %table.table.table-borderless
+      %tr
+        %td= t("chemical.columns.name")
+        %td= @chemical.chemical_name
+      %tr
+        %td= image_tag(@chemical.formula_picture_url(:thumb)) unless @chemical.formula.nil?
+        %td
+          = link_to @chemical.download_picture, { title: t('shared.download') } do
+            %button.btn.btn-outline-success.btn_margin
+              = fa_icon "download"
+        %tr
+          %td= t('chemical.columns.category')
+          %td= @category.category_name
+        %tr
+          %td= t("chemical.columns.formula")
+          %td= @chemical.formula
+        %tr
+          %td= t("chemical.columns.molecular_weight2")
+          %td= @chemical.decorate.molecular_weight_formatter
+        %tr
+          %td= t("chemical.columns.density")
+          %td= @chemical.decorate.density_formatter(@chemical.density)
+        %tr
+          %td= t("chemical.columns.inchi")
+          %td= @chemical.inchi_key
+        %tr
+          %td= t("chemical.columns.cas_number_formatted")
+          %td= @chemical.cas_number
+        %tr
+          %td= t("chemical.columns.smiles")
+          %td= @chemical.canonical_smiles

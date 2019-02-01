@@ -8,5 +8,4 @@ class FileDownloadService
     @chemical.formula_picture.file.authenticated_url
   end
 
-
 end

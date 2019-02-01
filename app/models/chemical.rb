@@ -11,21 +11,9 @@ class Chemical < ApplicationRecord
   attr_accessor :file_download, :process_original_version
 
 
-  def file_download
+  def download_picture
     FileDownloadService.new(self).call
   end
-=begin
-
-  def process_original_version
-    image = ::MiniMagick::Image::read(@chemical.formula_picture)
-
-    if image[:width] > image[:height]
-      resize_to_fill 50, 50
-    else
-      resize_to_fill 50, 50
-    end
-  end
-=end
 
 
 

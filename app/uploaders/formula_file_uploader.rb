@@ -5,7 +5,7 @@ class FormulaFileUploader < CarrierWave::Uploader::Base
   process resize_to_fit: [100, 100]
 
   version :thumb do
-    process resize_to_fill: [50, 50]
+    process resize_to_fit: [250, 250]
   end
 
   def store_dir

@@ -38,8 +38,7 @@ en:
       cas_number_formatted: "CAS"
       molecular_weight2: "MolecularWeight"
       image_url: "Image url"
-      new_category: "Add new Category"
+      new_category: "New Category"
       new_item: "New Item"
-      new_safety_precaution: "New Safety Precaution"
     edit: "Edit"
 

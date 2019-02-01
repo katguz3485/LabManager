@@ -68,6 +68,7 @@ en:
     add: "Add"
     index: "No"
     view: "Show"
+    download: "Download formula"
   category:
     columns:
       name: "Name"

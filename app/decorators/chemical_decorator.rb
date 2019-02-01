@@ -30,8 +30,12 @@ class ChemicalDecorator < BaseDecorator
     chemical.present? ? chemical.decorate.chemical_name.to_s.titleize : '-'
   end
 
+
+
+
   def formula_formater(formula)
     # TODO implement this
     # TODO remove redundancy in density mw methods
   end
+
 end

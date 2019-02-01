@@ -1,56 +1,12 @@
-.row
-  %table.table.table-condensed
-    %tr
-      %td
-        .col-sm-6.pull-left
-          = render 'layouts/shared/sidebar'
-  .row.pull-right
-    %h3.display-3
-    .list-group
-      %table.table.table-condensed
-        %tr
-          %td
-          .row.pull-right
-            = link_to new_category_chemical_path(@chemical.category_id, @chemical), { title: t('shared.edit') } do
-              %button.btn.btn-outline-success.btn_margin
-                = fa_icon "plus"
-            = link_to edit_category_chemical_path(@chemical.category_id, @chemical), {title: "edit"} do
-              %button.btn.btn-outline-warning.btn_margin
-                = fa_icon "edit"
-            = link_to category_chemical_path(@chemical.category_id,@chemical), { method: :delete, title: "delete"} do
-              %button.btn.btn-outline-danger.btn_margin
-                = fa_icon "trash"
-      %a.list-group-item.list-group-item-action.active{:href => "#"}
-        %h4 Identification
-        %a.list-group-item.list-group-item-action
-          %table.table.table-borderless
-            %tr
-              %td= t("chemical.columns.name")
-              %td= @chemical.chemical_name
-              %td= t('chemical.columns.category')
-              %td= @category.category_name
-            %tr
-              %td
-                %img.img-rounded{ src: @chemical.process_original_version}
-                %td= link_to 'Download Image', @chemical.file_download, class: "btn btn-outline-primary"
-              %tr
-                %td= t("chemical.columns.formula")
-                %td= @chemical.formula
-              %tr
-                %td= t("chemical.columns.molecular_weight2")
-                %td= @chemical.decorate.molecular_weight_formatter
-              %tr
-                %td= t("chemical.columns.density")
-                %td= @chemical.decorate.density_formatter(@chemical.density)
-              %tr
-                %td= t("chemical.columns.inchi")
-                %td= @chemical.inchi_key
-              %tr
-                %td= t("chemical.columns.cas_number_formatted")
-                %td= @chemical.cas_number
-              %tr
-                %td= t("chemical.columns.smiles")
-                %td= @chemical.canonical_smiles
-    .col-md-12
-      = link_to 'Edit', edit_category_chemical_path(@chemical), class: 'btn btn-outline-primary'
+.jumbotron
+  %p.lead This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
+  %hr.my-4/
+  %p.leads
+  .row
+    .col-4
+      = render 'layouts/shared/sidebar'
+    .col-8
+      = render 'chemicals/chemicals_feature_table'
+    .col-md-12.btn-margin
       = link_to 'Back', chemicals_path, class: 'btn btn-outline-primary'
+
