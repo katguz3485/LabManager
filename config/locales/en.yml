@@ -42,5 +42,7 @@ en:
       new_category: "New Category"
       new_item: "New Item"
       add_msds: "Add MSDS"
+      download_msds: "Download MSDS"
+      show_msds: "Open MSDS"
     edit: "Edit"
 

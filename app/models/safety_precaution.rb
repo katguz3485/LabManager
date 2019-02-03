@@ -6,5 +6,9 @@ class SafetyPrecaution < ApplicationRecord
   mount_uploader :sds_file, SdsFileUploader
 
 
+  def download_msds
+    MsdsDownloadService.new(self).call
+  end
+
 
 end

@@ -2,6 +2,7 @@
 
 class ChemicalDecorator < BaseDecorator
   delegate_all
+  decorates_association :safety_precaution
   include Draper::LazyHelpers
 
   #

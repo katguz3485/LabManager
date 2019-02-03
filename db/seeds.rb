@@ -102,23 +102,25 @@ items_list.each do |item|
   Item.create!(item)
 end
 
-3.times do
-  SafetyPrecaution.create!(
-      chemical_id: Faker::Number.between(1, 3),
-      sds_file: "61-54-1_msds.pdf",
-      name_from_sds: "",
-      pictogram: "",
-      storage_temperature_range: "5-10 st",
-      signal_word: "Uwaga",
-      h_codes: "H201",
-      h_statements: "Explosive; mass explosion hazard",
-      p_codes: "P333 + P313",
-      p_statements: "If skin irritation or rash occurs: Get medical advice/attention.",
-      adr_number: "",
-      adr_class: "",
-      adr_group: ""
+Chemical.all.each do |chemical|
+  3.times do
+    SafetyPrecaution.create!(
+        chemical_id: chemical.id,
+        sds_file: "61-54-1_msds.pdf",
+        name_from_sds: "",
+        pictogram: "",
+        storage_temperature_range: "5-10 st",
+        signal_word: "Uwaga",
+        h_codes: "H201",
+        h_statements: "Explosive; mass explosion hazard",
+        p_codes: "P333 + P313",
+        p_statements: "If skin irritation or rash occurs: Get medical advice/attention.",
+        adr_number: "",
+        adr_class: "",
+        adr_group: ""
 
-  )
+    )
+  end
 end
 
 3.times do
