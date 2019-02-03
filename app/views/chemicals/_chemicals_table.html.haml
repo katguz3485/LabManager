@@ -17,7 +17,7 @@
           %tr
             - @chemicals.each do |chemical|
               %tr
-                %td= image_tag(chemical.formula_picture_url(:thumb)) unless chemical.formula.nil?
+                %td= image_tag(chemical.decorate.show_formula_picture)
                 %td= link_to chemical.decorate.titleize_chemical_name, category_chemical_path(chemical.category_id, chemical)
                 %td= chemical.category.decorate.titleize_category_name
                 %td= chemical.canonical_smiles

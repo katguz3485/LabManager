@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
   get '/chemicals', to: 'chemicals#index'
 
-  resources :safety_precautions
+  resources :chemicals do
+    resources :safety_precautions
+  end
 
   resources :items do
     resources :locations

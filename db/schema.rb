@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_26_131705) do
+ActiveRecord::Schema.define(version: 2019_02_02_110346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,7 +75,9 @@ ActiveRecord::Schema.define(version: 2019_01_26_131705) do
     t.bigint "chemical_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "chemicals_id"
     t.index ["chemical_id"], name: "index_safety_precautions_on_chemical_id"
+    t.index ["chemicals_id"], name: "index_safety_precautions_on_chemicals_id"
   end
 
   create_table "user_providers", force: :cascade do |t|
@@ -115,5 +117,5 @@ ActiveRecord::Schema.define(version: 2019_01_26_131705) do
 
   add_foreign_key "categories", "users"
   add_foreign_key "chemicals", "categories"
-
+  add_foreign_key "safety_precautions", "chemicals", column: "chemicals_id"
 end

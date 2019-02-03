@@ -8,12 +8,9 @@
       %th
 
   %tbody
-    - @safety_precaution.each do |safety_precaution|
+    - @safety_precautions.each do |safety_precaution|
       %tr
-        %td= link_to 'Show', safety_precaution
-        %td= link_to 'Edit', edit_safety_precaution_path(safety_precaution)
-        %td= link_to 'Destroy', safety_precaution, method: :delete, data: { confirm: 'Are you sure?' }
-
+        %td= link_to 'Show', chemical_safety_precaution_path(safety_precaution.chemical, safety_precaution)
+        %td= link_to 'Edit', edit_chemical_safety_precaution_path(safety_precaution.chemical, safety_precaution)
+        %td= link_to 'Destroy',chemical_safety_precaution_path(safety_precaution.chemical, safety_precaution), method: :delete, data: { confirm: 'Are you sure?' }
 %br
-
-= link_to 'New Safety precaution', new_safety_precaution_path

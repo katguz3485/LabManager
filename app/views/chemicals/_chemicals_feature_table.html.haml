@@ -6,7 +6,7 @@
         %td= t("chemical.columns.name")
         %td= @chemical.chemical_name
       %tr
-        %td= image_tag(@chemical.formula_picture_url(:thumb)) unless @chemical.formula.nil?
+        %td= image_tag(@chemical.decorate.show_formula_picture) unless @chemical.formula.nil?
         %td
           = link_to @chemical.download_picture, { title: t('shared.download') } do
             %button.btn.btn-outline-success.btn_margin

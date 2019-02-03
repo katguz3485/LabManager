@@ -5,7 +5,7 @@ class FileDownloadService
   end
 
   def call
-    @chemical.formula_picture.file.authenticated_url
+    @chemical.formula_picture.file.authenticated_url unless @chemical.formula_picture.file.nil?
   end
 
 end

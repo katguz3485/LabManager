@@ -16,11 +16,13 @@ class ChemicalsController < ApplicationController
 
   def new
     @chemical = @category.chemicals.build
+
   end
 
+
   def create
-   @chemical = @category.chemicals.build(chemical_params)
-   @chemical.category = Category.first
+    @chemical = @category.chemicals.build(chemical_params)
+    @chemical.category = Category.first
     if @chemical.save
       redirect_to chemicals_path, notice: I18n.t('shared.created', resource: 'Chemical')
     else
@@ -53,8 +55,12 @@ class ChemicalsController < ApplicationController
   end
 
   def set_category
+
     @category = Category.find(params[:category_id])
+
   end
+
+
 
   def chemical_params
     params.require(:chemical).permit(:chemical_name,
@@ -65,10 +71,8 @@ class ChemicalsController < ApplicationController
                                      :canonical_smiles,
                                      :inchi_key,
                                      :formula_picture,
-                                     :category_id)
+                                     :category_id, :id)
   end
-
-
 
 
 end

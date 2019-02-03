@@ -30,7 +30,9 @@ class ChemicalDecorator < BaseDecorator
     chemical.present? ? chemical.decorate.chemical_name.to_s.titleize : '-'
   end
 
-
+  def show_formula_picture
+    chemical.formula_picture.present? ? chemical.formula_picture_url(:thumb) : Faker::LoremPixel.image("50x60", false, 'sports')
+  end
 
 
   def formula_formater(formula)
