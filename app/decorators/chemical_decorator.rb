@@ -35,6 +35,10 @@ class ChemicalDecorator < BaseDecorator
     chemical.formula_picture.present? ? chemical.formula_picture_url(:thumb) : Faker::LoremPixel.image("50x60", false, 'sports')
   end
 
+  def download_picture
+    ChemicalServices::FileDownloadService.new(self).call
+  end
+
 
   def formula_formater(formula)
     # TODO implement this

@@ -9,11 +9,7 @@ class Chemical < ApplicationRecord
   validates :formula, :cas_number, :molecular_weight, presence: true
   mount_uploader :formula_picture, FormulaFileUploader
 
-  attr_accessor :file_download, :process_original_version
-
-  def download_picture
-    FileDownloadService.new(self).call
-  end
+  attr_accessor  :process_original_version
 
 
 

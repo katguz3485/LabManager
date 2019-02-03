@@ -12,6 +12,7 @@ class ChemicalsController < ApplicationController
 
   def show;
 
+
   end
 
   def new

@@ -11,6 +11,10 @@
     = favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => "image/x-icon"
     %header
       = render 'layouts/shared/navigation'
+      .container-fluid
+        .row
+          .col-md-12
+            = breadcrumbs style: :bootstrap, separator: "&raquo;"
     %main{:role => "main"}
       = render 'layouts/shared/messages'
       .container

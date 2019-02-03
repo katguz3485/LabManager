@@ -8,7 +8,7 @@
       %tr
         %td= image_tag(@chemical.decorate.show_formula_picture) unless @chemical.formula.nil?
         %td
-          = link_to @chemical.download_picture, { title: t('shared.download') } do
+          = link_to @chemical.decorate.download_picture, { title: t('shared.download') } do
             %button.btn.btn-outline-success.btn_margin
               = fa_icon "download"
         %tr
