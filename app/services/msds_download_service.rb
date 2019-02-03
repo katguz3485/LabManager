@@ -5,7 +5,7 @@ class MsdsDownloadService
   end
 
   def call
-    @safety_precaution.sds_file.file.authenticated_url unless @safety_precaution.sds_file.file.nil?
+    @safety_precaution.sds_file.file.authenticated_url unless @safety_precaution.sds_file..nil?
   end
 
 
