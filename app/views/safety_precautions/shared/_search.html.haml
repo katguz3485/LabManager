@@ -1,0 +1,11 @@
+.jumbotron
+  %h3.display-3
+  %p.lead A Material Safety Data Sheet (MSDS) contains information on the properties and potential hazards of the material. Read before you start working to know how to use it safely, and what to do if there is an emergency.
+  .list-group
+    %a.list-group-item.list-group-item-action.active{:href => "#"}
+      %h4 Search MSDS sheet
+    %a.list-group-item.list-group-item-action
+      =render 'safety_precautions/shared/search_msds'
+      =render 'safety_precautions/shared/chemicals_with_safety_precaution'
+  %hr.my-4/
+  %p.lead

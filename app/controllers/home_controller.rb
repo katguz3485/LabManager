@@ -6,8 +6,5 @@ class HomeController < ApplicationController
   def index
     @q = Chemical.search(params[:q])
     @chemicals = @q.result(distinct: true)
-
   end
-
-
 end

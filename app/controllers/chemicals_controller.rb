@@ -10,10 +10,7 @@ class ChemicalsController < ApplicationController
     @chemicals = @q.result(distinct: true)
   end
 
-  def show;
-
-
-  end
+  def show; end
 
   def new
     @chemical = @category.chemicals.build
@@ -30,9 +27,7 @@ class ChemicalsController < ApplicationController
     end
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
     if @chemical.update(chemical_params)
@@ -66,8 +61,6 @@ class ChemicalsController < ApplicationController
                                      :canonical_smiles,
                                      :inchi_key,
                                      :formula_picture,
-                                     :category_id)
+                                     :category_id, :id)
   end
-
-
 end

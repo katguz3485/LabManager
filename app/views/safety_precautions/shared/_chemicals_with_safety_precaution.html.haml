@@ -1,0 +1,19 @@
+.col.md-12.frame-form
+  %table.table.table-condensed.center-content
+    %thead
+      %tr
+        %th= t('chemical.columns.image')
+        %th= t('chemical.columns.name')
+        %th= t('chemical.columns.cas_number')
+        %th= t('chemical.columns.category')
+        %th= t('chemical.columns.show_msds')
+
+      %tbody
+        %tr
+          - @safety_precautions.each do |safety_precaution|
+            %tr
+              %td= image_tag(safety_precaution.chemical.decorate.show_formula_picture)
+              %td= link_to safety_precaution.chemical.decorate.titleize_chemical_name, chemical_safety_precaution_path(safety_precaution.chemical_id, safety_precaution)
+              %td= safety_precaution.chemical.cas_number
+              %td= safety_precaution.chemical.category.decorate.titleize_category_name
+              %td= safety_precaution.decorate.show_msds_file

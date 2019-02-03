@@ -9,6 +9,7 @@ en:
     my_account: "My Account"
     categories: "Categories"
     chemicals: "Chemicals"
+    safety_precautions: "MSDS"
   shared:
     created: "%{resource} has been created!"
     updated: "%{resource} has been updated!"
@@ -40,5 +41,14 @@ en:
       image_url: "Image url"
       new_category: "New Category"
       new_item: "New Item"
+      add_msds: "Add MSDS"
+      download_msds: "Download MSDS"
+      show_msds: "Open MSDS"
+      storage_temperature: "Storage Temperature"
+      signal_word: "Signal Word"
+      h_codes: "H codes"
+      p_codes: "P codes"
+      p_statements: "P statements"
+      update_msds: "Update MSDS"
     edit: "Edit"
 

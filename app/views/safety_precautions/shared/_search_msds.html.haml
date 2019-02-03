@@ -1,0 +1,17 @@
+.col.md-12.frame-form
+  %table.table.table-condensed
+    %thead
+    %tr
+      %td
+        = search_form_for @q, html: {class: "form-tag"} do |f|
+          .input-group
+            = f.search_field :chemical_chemical_name_cont, placeholder: 'Search MSDS by name', class: "form-control"
+            %span.input-group-btn
+              = f.submit "Search", class: 'btn btn-secondary'
+        = search_form_for @q, html: {class: "form-tag"} do |f|
+          .input-group
+            = f.search_field :chemical_cas_number_cont, placeholder: 'Search MSDS by cas', class: "form-control"
+            %span.input-group-btn
+              = f.submit "Search", class: 'btn btn-secondary'
+
+

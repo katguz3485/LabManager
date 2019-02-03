@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FormulaFileUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   storage :fog
@@ -6,6 +8,10 @@ class FormulaFileUploader < CarrierWave::Uploader::Base
 
   version :thumb do
     process resize_to_fit: [250, 250]
+  end
+
+  def fog_directory
+    Rails.application.credentials.dig(:aws, :bucket_formula)
   end
 
   def store_dir
@@ -19,7 +25,4 @@ class FormulaFileUploader < CarrierWave::Uploader::Base
   def size_range
     0.1..5.megabytes
   end
-
-
-
 end

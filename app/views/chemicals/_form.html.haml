@@ -1,16 +1,16 @@
 .row
   .col-md-8
-= simple_form_for [@category, @chemical], html: { multipart: true} do |f|
-  = f.input :chemical_name
-  = f.input :formula
-  = f.input :molecular_weight
-  = f.input :density
-  =# @chemical.category.category_name.to_s
-  = f.association :category, collection: Category.pluck(:category_name), as: :check_boxes, item_wrapper_class: "style_item", prompt: 'Choose a category'
-  .row
-    = link_to t('shared.add_new_category'), new_category_path, class: 'btn btn-outline-success'
-  = f.input :cas_number
-  = f.input :canonical_smiles
-  = f.input :formula_picture, as: :file
-  .row
+  %h5 Category: #{@chemical.category.category_name}
+  = simple_form_for [@category, @chemical], html: { multipart: true} do |f|
+    = f.input :chemical_name
+    = f.input :formula
+    = f.input :molecular_weight
+    = f.input :density
+    = f.association :category, collection: Category.pluck(:category_name), as: :check_boxes, item_wrapper_class: "style_item", prompt: 'Choose a category'
+    .row
+      = link_to t('shared.add_new_category'), new_category_path, class: 'btn btn-outline-success'
+    = f.input :cas_number
+    = f.input :canonical_smiles
+    = f.input :formula_picture, as: :file
     = f.button :submit, class: 'btn btn-outline-primary'
+

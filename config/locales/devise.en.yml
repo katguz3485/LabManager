@@ -69,6 +69,7 @@ en:
     index: "No"
     view: "Show"
     download: "Download formula"
+    download_msds: "Download MSDS"
   category:
     columns:
       name: "Name"

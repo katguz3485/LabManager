@@ -1,0 +1,14 @@
+.row
+  .col-md-8
+    = simple_form_for [@chemical, @chemical.safety_precaution], html: { multipart: true} do |f|
+      = f.input :sds_file, as: :file
+      = f.collection_select(:chemical_id, Chemical.where(id: @safety_precaution.chemical_id), :id, :chemical_name, { :prompt => "Select Chemical"}, {:selected => :prompt})
+      = f.input :name_from_sds
+      = f.input :h_codes
+      = f.input :p_codes
+      = f.input :h_statements
+      = f.input :p_statements
+      = f.input :adr_number
+      = f.input :adr_group
+      = f.button :submit, class: 'btn btn-outline-primary'
+
