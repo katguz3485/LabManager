@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SdsFileUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   storage :fog
@@ -10,7 +12,6 @@ class SdsFileUploader < CarrierWave::Uploader::Base
     Rails.application.credentials.dig(:aws, :bucket_msds)
   end
 
-
   def extension_whitelist
     %w(pdf)
   end
@@ -18,6 +19,4 @@ class SdsFileUploader < CarrierWave::Uploader::Base
   def size_range
     0.1..5.megabytes
   end
-
-
 end

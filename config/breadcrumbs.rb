@@ -1,24 +1,25 @@
+# frozen_string_literal: true
+
 crumb :root do
-  link "Home", root_path
+  link 'Home', root_path
 end
 
 crumb :chemicals do
-  link "Chemicals" , chemicals_path
+  link 'Chemicals', chemicals_path
 end
 
 crumb :categories do
-  link "Categories", categories_path
+  link 'Categories', categories_path
 end
 
 crumb :new_chemical do |chemical|
-  link t("chemical.columns.new_chemical"), new_category_chemical_path(chemical.category_id, chemical)
+  link t('chemical.columns.new_chemical'), new_category_chemical_path(chemical.category_id, chemical)
   parent :chemicals, chemical
 end
 
 crumb :new_category do |category|
-  link t("chemical.columns.new_category"), new_category_path(category)
+  link t('chemical.columns.new_category'), new_category_path(category)
 end
-
 
 # crumb :projects do
 #   link "Projects", projects_path

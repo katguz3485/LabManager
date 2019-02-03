@@ -17,7 +17,6 @@ class SafetyPrecautionsController < ApplicationController
   end
 
   def new
-
     @safety_precaution = @chemical.build_safety_precaution
   end
 
@@ -31,8 +30,7 @@ class SafetyPrecautionsController < ApplicationController
     end
   end
 
-  def edit;
-  end
+  def edit; end
 
   def update
     if @safety_precaution.update(safety_precaution_params)
@@ -57,12 +55,10 @@ class SafetyPrecautionsController < ApplicationController
     @safety_precaution = SafetyPrecaution.find(params[:id])
   end
 
-
   def safety_precaution_params
     params.require(:safety_precaution).permit(:sds_file, :name_from_sds, :pictogram,
                                               :storage_temperature_range, :signal_word,
                                               :h_codes, :h_statements, :p_codes, :p_statements,
                                               :adr_number, :adr_class, :adr_group, :chemical_id, :id)
   end
-
 end

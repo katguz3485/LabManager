@@ -10,16 +10,11 @@ class ChemicalsController < ApplicationController
     @chemicals = @q.result(distinct: true)
   end
 
-  def show;
-
-
-  end
+  def show; end
 
   def new
     @chemical = @category.chemicals.build
-
   end
-
 
   def create
     @chemical = @category.chemicals.build(chemical_params)
@@ -32,9 +27,7 @@ class ChemicalsController < ApplicationController
     end
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
     if @chemical.update(chemical_params)
@@ -57,10 +50,7 @@ class ChemicalsController < ApplicationController
 
   def set_category
     @category = Category.find(params[:category_id])
-
   end
-
-
 
   def chemical_params
     params.require(:chemical).permit(:chemical_name,
@@ -73,6 +63,4 @@ class ChemicalsController < ApplicationController
                                      :formula_picture,
                                      :category_id, :id)
   end
-
-
 end

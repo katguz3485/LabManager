@@ -23,8 +23,8 @@ gem 'html2haml'
 gem 'httparty'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
-gem 'momentjs-rails'
 gem 'mini_magick'
+gem 'momentjs-rails'
 gem 'omniauth-facebook' # for Facebook Authentication
 gem 'omniauth-github', '~> 1.1.2' # for Github Authentication
 gem 'omniauth-google-oauth2',       '~> 0.5.1' # for Google Authentication

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module ChemicalServices
   class PubChemService
     include HTTParty
@@ -35,7 +36,6 @@ module ChemicalServices
         raise response.response
       end
       @property = to_hash_object(response['PropertyTable']['Properties'])
-
     end
 
     def to_hash_object(property)

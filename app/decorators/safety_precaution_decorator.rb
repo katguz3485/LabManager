@@ -14,7 +14,6 @@ class SafetyPrecautionDecorator < Draper::Decorator
   #   end
   #
   def show_msds_file
-    safety_precaution.sds_file.present? ? safety_precaution.sds_file : "-"
+    safety_precaution.sds_file.presence || '-'
   end
-
 end
