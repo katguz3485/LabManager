@@ -5,11 +5,8 @@ class ItemsController < ApplicationController
   before_action :set_chemical
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @item = @chemical.items
-  end
 
-  def show;
+  def show
     @items = @chemical.items
   end
 
@@ -20,7 +17,7 @@ class ItemsController < ApplicationController
   def create
     @item = @chemical.items.build(item_params)
     if @item.save
-      redirect_to items_path(@item), notice: I18n.t('shared.created', resource: 'Hazard and Safety sheet')
+      redirect_to chemicals_path, notice: I18n.t('shared.created', resource: 'Items')
     else
       flash.now.alert = I18n.t('shared.error_create')
       render :new
@@ -32,7 +29,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(safety_precaution_params)
-      redirect_to items_path(@item), notice: t('shared.updated', resource: 'Hazard and Safety sheet')
+      redirect_to chemicals_path, notice: t('shared.updated', resource: 'Item')
     else
       render :edit
     end
@@ -40,7 +37,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to items_path, notice: I18n.t('shared.deleted', resource: 'Hazard and Safety sheet')
+    redirect_to chemicals_path, notice: I18n.t('shared.deleted', resource: 'Item')
   end
 
   private

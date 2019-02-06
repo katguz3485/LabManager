@@ -12,7 +12,7 @@ class ChemicalsController < ApplicationController
 
   def show;
     @items = @chemical.items
-    @safety_precautions = @chemical.safety_precaution
+    @safety_precaution = @chemical.safety_precaution
   end
 
   def new
