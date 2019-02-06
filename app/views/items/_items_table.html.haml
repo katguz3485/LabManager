@@ -1,0 +1,15 @@
+%a.list-group-item.list-group-item-action.active{:href => "#"}
+  %h4 Items
+  %a.list-group-item.list-group-item-action
+    %table.table.table-borderless
+      %tr
+
+        - @items.each do |item|
+          %tr
+            %td= item.chemical.chemical_name
+            %td= item.decorate.item_place
+            %td= item.decorate.item_stock
+            %td= link_to 'New', new_chemical_item_path(item.chemical_id, item),class: 'btn btn-primary btn-xs'
+            %td= link_to 'Edit', edit_chemical_item_path(item.chemical_id, item), class: 'btn btn-primary btn-xs'
+            %td= link_to 'Destroy',  chemical_item_path(item.chemical_id, item),class: 'btn btn-primary btn-xs', method: :delete, data: { confirm: 'Are you sure?' }
+

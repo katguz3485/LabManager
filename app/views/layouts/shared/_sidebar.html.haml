@@ -17,9 +17,6 @@
     .col-md-10.btn_margin
       = link_to t('chemical.columns.new_category'), new_category_path, class: 'btn btn-secondary'
     .col-md-10.btn_margin
-      = link_to t('chemical.columns.new_chemical'), new_category_chemical_path(category_id: @safety_precaution.chemical.category.id), class: 'btn btn-secondary'
+      = link_to t('chemical.columns.new_chemical'), new_category_chemical_path(category_id: @category.id), class: 'btn btn-secondary'
     .col-md-10.btn_margin
-      = link_to t('chemical.columns.add_msds'), new_chemical_safety_precaution_path(@chemical, @chemical.safety_precaution), class: 'btn btn-secondary'
-    .col-md-10.btn_margin
-      = link_to t('chemical.columns.new_item'), new_item_path(@item), class: 'btn btn-secondary'
-
+      = link_to t('chemical.columns.new_item'), new_chemical_item_path(@chemical, @item), class: 'btn btn-secondary'

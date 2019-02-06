@@ -10,7 +10,10 @@ class ChemicalsController < ApplicationController
     @chemicals = @q.result(distinct: true)
   end
 
-  def show; end
+  def show;
+    @items = @chemical.items
+    @safety_precautions = @chemical.safety_precaution
+  end
 
   def new
     @chemical = @category.chemicals.build

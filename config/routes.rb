@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations',
-                                    confirmations: 'users/confirmations' }
+  devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations',
+                                   confirmations: 'users/confirmations'}
 
   root to: 'home#index'
 
@@ -21,7 +21,10 @@ Rails.application.routes.draw do
 
   get 'safety_precautions', to: 'safety_precautions#index'
 
-  resources :items do
-    resources :locations
+  resources :chemicals do
+    resources :items do
+    end
   end
+
+
 end

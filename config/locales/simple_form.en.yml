@@ -5,6 +5,10 @@ en:
     required:
       text: 'required'
       mark: '*'
+      item_owner:
+        group1: 'Biological Chemistry And Drug Design Group'
+        group2: 'Bioorganic Chemistry'
+        group3: 'Inorganic Chemistry'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'

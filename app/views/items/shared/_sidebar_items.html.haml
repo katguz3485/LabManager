@@ -1,0 +1,22 @@
+.card.border-secondary.mb-3{:style => "max-width: 15rem;"}
+  .card-header Control Panel
+  .card-body
+    %table.table.table-condensed
+      %tr
+        %td
+        .row.pull-right
+          = link_to new_chemical_safety_precaution_path(@safety_precaution.chemical_id, @safety_precaution.id), { title: t('shared.edit') } do
+            %button.btn.btn-outline-success.btn_margin
+              = fa_icon "plus"
+          = link_to edit_chemical_safety_precaution_path(@safety_precaution.chemical_id, @safety_precaution.id), {title: "edit"} do
+            %button.btn.btn-outline-warning.btn_margin
+              = fa_icon "edit"
+          = link_to chemical_safety_precaution_path(@safety_precaution.chemical_id, @safety_precaution.id), { method: :delete, title: "delete"} do
+            %button.btn.btn-outline-danger.btn_margin
+              = fa_icon "trash"
+    .col-md-10.btn_margin
+      = link_to t('chemical.columns.new_category'), new_category_path, class: 'btn btn-secondary'
+    .col-md-10.btn_margin
+      = link_to t('chemical.columns.new_chemical'), new_category_chemical_path(@chemical.category_id, @chemical), class: 'btn btn-secondary'
+    .col-md-10.btn_margin
+      = link_to t('chemical.columns.add_msds'), new_chemical_safety_precaution_path(@safety_precaution.chemical_id, @safety_precaution.id), class: 'btn btn-secondary'

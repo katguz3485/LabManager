@@ -3,12 +3,16 @@
 class ItemDecorator < Draper::Decorator
   delegate_all
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
+  def item_place
+    item.present? ? "#{item.room}-#{item.shelf}-#{item.number}" : '-'
+  end
+
+  def amount_formatter
+    item.present? ? "#{item.amount} g/(mL)" : "-"
+  end
+
+  def item_stock
+    "#{item.quantity} x #{amount_formatter}"
+  end
+
 end

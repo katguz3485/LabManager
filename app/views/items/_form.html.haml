@@ -1,9 +1,14 @@
-\%= simple_form_for(@%= singular_table_name %&gt;) do |f| %&gt;
-\%= f.error_notification %&gt;
-\%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %&gt;
-.form-inputs
-  - attributes.each do |attribute|
-    \%= f.%= attribute.reference? ? :association : :input %&gt; :#{attribute.name} %&gt;
-.form-actions
-  \%= f.button :submit %&gt;
-\% end %&gt;
+.row
+  .col-md-12
+    = simple_form_for [@chemical, @item], html: { multipart: true} do |f|
+      = f.input :item_owner, collection: [:group1, :group2, :group3]
+      = f.input :quantity
+      = f.input :amount
+      = f.input :comment
+      = f.input :daily_usage
+      = f.input :present_in_respiratory_zone, as: :boolean, checked_value: true, unchecked_value: false
+      = f.input :room
+      = f.input :shelf
+      = f.input :number
+      = f.button :submit, class: 'btn btn-outline-success'
+

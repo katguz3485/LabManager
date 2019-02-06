@@ -10,7 +10,6 @@ RSpec.describe Item, type: :model do
   end
 
   describe 'associations' do
-    it { is_expected.to have_many :locations }
     it { is_expected.to belong_to :chemical }
   end
 

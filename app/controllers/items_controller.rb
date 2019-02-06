@@ -2,15 +2,16 @@
 
 class ItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_chemical
-  before_action :set_category
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @item = @chemical.items
   end
 
-  def show; end
+  def show;
+    @items = @chemical.items
+  end
 
   def new
     @item = @chemical.items.build
@@ -26,7 +27,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit;
+  end
 
   def update
     if @item.update(safety_precaution_params)
@@ -43,16 +45,12 @@ class ItemsController < ApplicationController
 
   private
 
+  def set_chemical
+    @chemical = Chemical.find(params[:chemical_id])
+  end
+
   def set_item
     @item = @chemical.items.find(params[:id])
-  end
-
-  def set_chemical
-    @chemical = @category.chemicals.find(params[:chemical_id])
-  end
-
-  def set_category
-    @category = current_user.categories.find(params[:category_id])
   end
 
   def item_params
@@ -60,6 +58,9 @@ class ItemsController < ApplicationController
                                  :quantity,
                                  :amount,
                                  :comment,
-                                 :daily_usage)
+                                 :daily_usage,
+                                 :room,
+                                 :shelf,
+                                 :number, :chemical_id)
   end
 end

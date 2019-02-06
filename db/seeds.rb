@@ -14,6 +14,8 @@ Rails.logger.info "Creating seeds"
   user.save!
 end
 
+Rails.logger.info "#{User.all.count} users created "
+
 category_list =
     ["Acids", "Acyl halides", "Alcohols", "Aldehydes and ketones", "Amines", "Amino acids",
      "Boronic acids", "Carbohydrates", "Carboxylic acids", "Dyes", "Elements", "Esters and amides",
@@ -27,9 +29,10 @@ category_list.each do |category|
   Category.create!(category_name: category, user_id: Faker::Number.between(1, 5))
 end
 
+Rails.logger.info "#{Category.all.count} categories created "
+
 chemical_names_list = ["Sodium cyanide", "Potassium cyanide", "Butyric acid", "Pentanoic acid", "Methanol", "Ethanol",
                        "Acetic acid", "Acetic anhydride", "Formic acid"]
-
 
 chemicals_list =
     [
@@ -74,62 +77,46 @@ chemicals_list.each do |chemical|
   Chemical.create!(chemical)
 end
 
-items_list = [{item_owner: "Biological Chemistry and Drug Development Group",
-               quantity: 10,
-               amount: 1.5,
-               comment: "It should be store in the fridge",
-               daily_usage: "5-10 mg",
-               chemical_id: 1},
+Rails.logger.info "#{Chemical.all.count} chemicals created "
 
-              {item_owner: "Inorganic Cgemistry",
-               quantity: 10,
-               amount: 1.5,
-               comment: "-",
-               daily_usage: "5-10 mg",
-               chemical_id: 3},
-
-
-              {item_owner: "Organic Chemistry",
-               quantity: 10,
-               amount: 1.5,
-               comment: "-",
-               daily_usage: "5-10 mg",
-               chemical_id: 3
-
-              }]
-
-items_list.each do |item|
-  Item.create!(item)
-end
 
 Chemical.all.each do |chemical|
-  3.times do
-    SafetyPrecaution.create!(
-        chemical_id: chemical.id,
-        sds_file: "61-54-1_msds.pdf",
-        name_from_sds: "",
-        pictogram: "",
-        storage_temperature_range: "5-10 st",
-        signal_word: "Uwaga",
-        h_codes: "H201",
-        h_statements: "Explosive; mass explosion hazard",
-        p_codes: "P333 + P313",
-        p_statements: "If skin irritation or rash occurs: Get medical advice/attention.",
-        adr_number: "",
-        adr_class: "",
-        adr_group: ""
+  SafetyPrecaution.create!(
+      chemical_id: chemical.id,
+      sds_file: "61-54-1_msds.pdf",
+      name_from_sds: "",
+      pictogram: "",
+      storage_temperature_range: "5-10 st",
+      signal_word: "Uwaga",
+      h_codes: "H201",
+      h_statements: "Explosive; mass explosion hazard",
+      p_codes: "P333 + P313",
+      p_statements: "If skin irritation or rash occurs: Get medical advice/attention.",
+      adr_number: "",
+      adr_class: "",
+      adr_group: ""
+  )
 
-    )
-  end
+  Item.create!([{
+                    item_owner: "Biological Chemistry and Drug Development Group",
+                    quantity: 1,
+                    amount: 1.5,
+                    comment: "It should be store in the fridge",
+                    daily_usage: "5-10 mg",
+                    chemical_id: chemical.id},
+
+                {item_owner: "Biological Chemistry and Drug Development Group",
+                 quantity: 2,
+                 amount: 1.5,
+                 comment: "RT",
+                 daily_usage: "0 mg",
+                 chemical_id: chemical.id}]
+  )
 end
 
-3.times do
-  Location.create!(
-      item_id: Faker::Number.between(1, 3),
-      room: Faker::Alphanumeric.alphanumeric(5),
-      shelf: Faker::Alphanumeric.alphanumeric(5),
-      number: Faker::Alphanumeric.alphanumeric(5))
-end
+Rails.logger.info "#{SafetyPrecaution.all.count} safety sheets created "
+
+Rails.logger.info "#{Item.all.count} items created"
 
 Rails.logger.info 'Seeds created'
 
