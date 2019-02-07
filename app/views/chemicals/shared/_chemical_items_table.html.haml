@@ -6,6 +6,7 @@
         %td Name
         %td Place
         %td Stock
+        = "#{@items_total} Items available"
         - @chemical.items.each do |item|
           %tr
             %td= item.chemical.chemical_name

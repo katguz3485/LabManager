@@ -8,11 +8,12 @@ class ItemDecorator < Draper::Decorator
   end
 
   def amount_formatter
-    item.present? ? "#{item.amount} g/(mL)" : "-"
+    item.present? ? "#{item.amount} g/(mL)" : '-'
   end
 
   def item_stock
     "#{item.quantity} x #{amount_formatter}"
   end
+
 
 end

@@ -5,7 +5,6 @@ class ItemsController < ApplicationController
   before_action :set_chemical
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-
   def show
     @items = @chemical.items
   end
@@ -24,8 +23,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit;
-  end
+  def edit; end
 
   def update
     if @item.update(safety_precaution_params)

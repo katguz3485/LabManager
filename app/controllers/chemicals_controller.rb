@@ -10,8 +10,9 @@ class ChemicalsController < ApplicationController
     @chemicals = @q.result(distinct: true)
   end
 
-  def show;
+  def show
     @items = @chemical.items
+    @items_total = @chemical.items.count
     @safety_precaution = @chemical.safety_precaution
   end
 

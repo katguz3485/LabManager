@@ -7,7 +7,7 @@ module ChemicalServices
     end
 
     def call
-      @chemical.formula_picture.file.authenticated_url unless @chemical.formula_picture.file.nil?
+      @chemical.formula_picture.file&.authenticated_url
     end
   end
 end

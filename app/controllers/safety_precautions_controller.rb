@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 class SafetyPrecautionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_chemical, only: [:new, :show, :edit, :update, :destroy, ]
-
+  before_action :set_chemical, only: [:new, :show, :edit, :update, :destroy]
   before_action :set_safety_precaution, only: [:show, :edit, :update, :destroy]
 
   def index
     @safety_precautions = SafetyPrecaution.includes(:chemical).all
     @q = SafetyPrecaution.ransack(params[:q])
-    @safety_precautions  = @q.result.includes(:chemical)
+    @safety_precautions = @q.result.includes(:chemical)
   end
 
   def show
@@ -15,9 +16,7 @@ class SafetyPrecautionsController < ApplicationController
   end
 
   def new
-
     @safety_precaution = @chemical.build_safety_precaution
-
   end
 
   def create

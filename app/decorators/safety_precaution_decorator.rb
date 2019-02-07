@@ -8,4 +8,5 @@ class SafetyPrecautionDecorator < Draper::Decorator
     SafetyPrecautionsServices::MsdsDownloadService.new(self).call
   end
 
+
 end
