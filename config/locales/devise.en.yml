@@ -70,6 +70,8 @@ en:
     view: "Show"
     download: "Download formula"
     download_msds: "Download MSDS"
+    errors:
+      invalid_cas: "The number has invalid cas."
   category:
     columns:
       name: "Name"
