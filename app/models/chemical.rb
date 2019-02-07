@@ -9,7 +9,7 @@ class Chemical < ApplicationRecord
   has_many :items
   accepts_nested_attributes_for :safety_precaution, allow_destroy: true
   validates :chemical_name, presence: true, uniqueness: {case_sensitive: false}
-  validates :formula, :molecular_weight, presence: true
+  validates :formula, :cas_number, :molecular_weight, presence: true
 
   validates_with CasNumberValidator
   mount_uploader :formula_picture, FormulaFileUploader
