@@ -20,3 +20,5 @@
       = link_to t('chemical.columns.new_chemical'), new_category_chemical_path(category_id: @category.id), class: 'btn btn-secondary'
     .col-md-10.btn_margin
       = link_to t('chemical.columns.new_item'), new_chemical_item_path(@chemical, @item), class: 'btn btn-secondary'
+    .col-md-10.btn_margin
+      = link_to t('chemical.columns.add_msds'), new_chemical_safety_precaution_path(@chemical, @safety_precaution), class: 'btn btn-secondary'

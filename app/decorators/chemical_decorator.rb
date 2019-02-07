@@ -36,7 +36,6 @@ class ChemicalDecorator < BaseDecorator
   end
 
   def download_picture
-
     ChemicalServices::FileDownloadService.new(self).call
   end
 

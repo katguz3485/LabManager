@@ -12,9 +12,9 @@
         %tr
           - @safety_precautions.each do |safety_precaution|
             %tr
+            - unless safety_precaution.chemical.nil?
               %td= image_tag(safety_precaution.chemical.decorate.show_formula_picture)
               %td= link_to safety_precaution.chemical.decorate.titleize_chemical_name, chemical_safety_precaution_path(safety_precaution.chemical_id, safety_precaution)
               %td= safety_precaution.chemical.cas_number
               %td= safety_precaution.chemical.category.decorate.titleize_category_name
               %td= safety_precaution.decorate.show_msds_file
-

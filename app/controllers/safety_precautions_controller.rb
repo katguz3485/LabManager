@@ -1,6 +1,6 @@
 class SafetyPrecautionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_chemical, only: [:show, :edit, :update, :destroy]
+  before_action :set_chemical, only: [:new, :show, :edit, :update, :destroy, ]
 
   before_action :set_safety_precaution, only: [:show, :edit, :update, :destroy]
 
@@ -11,11 +11,13 @@ class SafetyPrecautionsController < ApplicationController
   end
 
   def show
-    @safety_precaution ||= @chemical.build_safety_precaution
+    @safety_precaution = @chemical.safety_precaution
   end
 
   def new
+
     @safety_precaution = @chemical.build_safety_precaution
+
   end
 
   def create

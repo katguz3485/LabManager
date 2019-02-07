@@ -1,0 +1,39 @@
+%tr
+  %td= t("chemical.columns.name")
+  %td= @safety_precaution.chemical.chemical_name
+  %tr
+    %td= image_tag(@safety_precaution.chemical.decorate.show_formula_picture) unless @safety_precaution.chemical.formula_picture.nil?
+    %td
+      = link_to @safety_precaution.decorate.show_msds_file, { title: t('shared.download_msds') } do
+        %button.btn.btn-outline-secondary.btn_margin
+          = fa_icon "download"
+    %tr
+      %td= t('chemical.columns.category')
+      %td= @safety_precaution.chemical.category.category_name
+      %td= t("chemical.columns.name_form_msds")
+      %td= @safety_precaution.name_from_sds
+    %tr
+      %td= t("chemical.columns.pictogram")
+      %td= @safety_precaution.pictogram
+      %td= t("chemical.columns.storage_temperature")
+      %td= @safety_precaution.storage_temperature_range
+    %tr
+      %td= t("chemical.columns.signal_word")
+      %td= @safety_precaution.signal_word
+      %td= t("chemical.columns.h_codes")
+      %td= @safety_precaution.h_codes
+    %tr
+      %td= t("chemical.columns.h_statements")
+      %td= @safety_precaution.h_statements
+      %td= t("chemical.columns.p_codes")
+      %td= @safety_precaution.p_codes
+    %tr
+      %td= t("chemical.columns.p_statements")
+      %td= @safety_precaution.p_statements
+      %td= t("chemical.columns.adr_number")
+      %td= @safety_precaution.adr_number
+    %tr
+      %td= t("chemical.columns.adr_class")
+      %td= @safety_precaution.adr_class
+      %td= t("chemical.columns.adr_group")
+      %td= @safety_precaution.adr_group

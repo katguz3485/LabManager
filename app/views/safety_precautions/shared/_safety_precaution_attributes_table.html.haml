@@ -1,0 +1,9 @@
+%a.list-group-item.list-group-item-action.active{:href => "#"}
+  %h4 Safety Data Sheet
+  %a.list-group-item.list-group-item-action
+    %table.table.table-borderless
+      - if @safety_precaution.nil? || @safety_precaution.chemical.nil?
+        %tr
+          %td No data provided
+      - else
+        = render 'safety_precautions/shared/safety_attributes'
