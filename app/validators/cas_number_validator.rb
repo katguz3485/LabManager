@@ -4,7 +4,7 @@ class CasNumberValidator < ActiveModel::Validator
   def validate(record)
     cpd_cas_number = record.cas_number
     unless is_valid?(cpd_cas_number)
-      record.errors.add(:cas_number, 'is invalid, enter the proper number')
+      record.errors.add(:cas_number, 'CAS is invalid, enter the proper number')
     end
   end
 

@@ -1,3 +1,5 @@
 - breadcrumb :chemicals
-
-=render 'chemicals_table'
+%a.list-group-item.list-group-item-action.active{:href => "#"}
+  %h4 Chemicals
+  %a.list-group-item.list-group-item-action
+    =render 'chemicals_table'

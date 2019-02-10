@@ -28,7 +28,7 @@ class ChemicalDecorator < BaseDecorator
   end
 
   def titleize_chemical_name
-    chemical.present? ? chemical.decorate.chemical_name.to_s.titleize : '-'
+    chemical.present? ? chemical.chemical_name : '-'
   end
 
   def show_formula_picture

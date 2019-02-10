@@ -29,7 +29,7 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params)
-      redirect to categories_path
+      redirect_to categories_path
     else
       flash.now.alert = I18n.t('shared.updated')
     end

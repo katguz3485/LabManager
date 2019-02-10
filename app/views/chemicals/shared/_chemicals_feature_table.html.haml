@@ -2,6 +2,7 @@
   %h4 Identification
   %a.list-group-item.list-group-item-action
     %table.table.table-borderless
+      = @chemical.category.category_name
       %tr
         %td= t("chemical.columns.name")
         %td= @chemical.chemical_name
