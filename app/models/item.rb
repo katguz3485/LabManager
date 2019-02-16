@@ -5,4 +5,5 @@ class Item < ApplicationRecord
 
 
   validates :item_owner, :quantity, :amount, presence: true
+
 end

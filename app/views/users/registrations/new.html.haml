@@ -3,17 +3,17 @@
     = f.error_notification
     %h2.text-center Sign up
     .form-inputs
-      = f.input :email,                     |
-        required: true,                     |
-        autofocus: true,                    |
-        input_html: {autocomplete: "email"} |
-      = f.input :password,                                                                    |
-        required: true,                                                                       |
-        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), |
-        input_html: {autocomplete: "new-password"}                                            |
-      = f.input :password_confirmation,            |
-        required: true,                            |
-        input_html: {autocomplete: "new-password"} |
+      = f.input :email,
+        required: true,
+        autofocus: true,
+        input_html: {autocomplete: "email"}
+      = f.input :password,
+        required: true,
+        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+        input_html: {autocomplete: "new-password"}
+      = f.input :password_confirmation,
+        required: true,
+        input_html: {autocomplete: "new-password"}
     .form-group
       .form-actions
         = f.button :submit, "Sign up", class: 'btn btn-success btn-block login-btn'
@@ -30,5 +30,5 @@
               %i{:class => "fa fa-#{provider}"}
               Sign in with
               %b= provider.to_s.camelize
-              %br/
+              %br
     = render 'links_sign_up'

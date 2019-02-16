@@ -15,7 +15,7 @@
 
         %tbody
           %tr
-            - @chemicals.each do |chemical|
+            - @chemicals.find_each do |chemical|
               %tr
                 %td= image_tag(chemical.decorate.show_formula_picture)
                 %td= link_to chemical.decorate.titleize_chemical_name, category_chemical_path(chemical.category_id, chemical)

@@ -10,7 +10,6 @@ module ChemicalServices
 
     def initialize(property)
       @property = property
-      # @name = @chemical.chemical_name
     end
 
     def cas_to_cid(cas)
