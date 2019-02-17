@@ -9,6 +9,6 @@ class Category < ApplicationRecord
   private
 
   def normalize_category_name
-    self.category_name = category_name.downcase.titleize
+    self.category_name = category_name.downcase.titleize unless category_name.nil?
   end
 end

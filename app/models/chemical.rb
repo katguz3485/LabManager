@@ -22,6 +22,6 @@ class Chemical < ApplicationRecord
   private
 
   def normalize_chemical_name
-    self.chemical_name = chemical_name.downcase.titleize
+    self.chemical_name = chemical_name.downcase.titleize unless chemical_name.nil?
   end
 end
