@@ -14,6 +14,4 @@ class ItemDecorator < Draper::Decorator
   def item_stock
     "#{item.quantity} x #{amount_formatter}"
   end
-
-
 end

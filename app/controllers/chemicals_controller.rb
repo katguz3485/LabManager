@@ -8,7 +8,6 @@ class ChemicalsController < ApplicationController
   def index
     @q = Chemical.ransack(params[:q])
     @chemicals = @q.result(distinct: true)
-
   end
 
   def show
@@ -38,9 +37,7 @@ class ChemicalsController < ApplicationController
     @property = ChemicalServices::PubChemService.find_properties(cid_number)
   end
 
-
-  def edit;
-  end
+  def edit; end
 
   def update
     if @chemical.update(chemical_params)
