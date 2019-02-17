@@ -7,6 +7,4 @@ class SafetyPrecautionDecorator < Draper::Decorator
   def show_msds_file
     SafetyPrecautionsServices::MsdsDownloadService.new(self).call
   end
-
-
 end
