@@ -8,5 +8,4 @@ class AddNullFalseToSafetyPrecautions < ActiveRecord::Migration[5.2]
     change_column_null :safety_precautions, :p_codes, null: false
     change_column_null :safety_precautions, :p_statements, null: false
   end
-
 end
