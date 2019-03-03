@@ -6,7 +6,7 @@ class Chemical < ApplicationRecord
 
   before_validation :normalize_chemical_name, on: :create
 
-  belongs_to :category
+  belongs_to :category, optional: true
   has_one :safety_precaution, dependent: :destroy
   has_many :items
   accepts_nested_attributes_for :safety_precaution, allow_destroy: true

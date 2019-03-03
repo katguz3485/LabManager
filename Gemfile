@@ -67,7 +67,6 @@ group :test do
   gem 'factory_bot'
   gem 'launchy'
   gem 'selenium-webdriver'
-  gem 'shoulda'
   gem 'shoulda-matchers'
 end
 

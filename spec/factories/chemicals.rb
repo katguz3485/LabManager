@@ -10,5 +10,6 @@ FactoryBot.define do
     canonical_smiles { 'C1=CC=CC=C1' }
     inchi_key { 'UHOVQNZJYSORNB-UHFFFAOYSA-N' }
     formula_picture { Faker::Avatar.image('picture', '50x50') }
+    category
   end
 end
