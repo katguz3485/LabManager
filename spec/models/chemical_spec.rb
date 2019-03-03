@@ -6,9 +6,9 @@ RSpec.describe Chemical, type: :model do
   describe 'validations' do
     subject { FactoryBot.build(:chemical) }
 
+
     it {should validate_presence_of :formula}
     it {should validate_presence_of :molecular_weight}
-   # it {should validate_presence_of :chemical_name}
     it {should validate_uniqueness_of(:chemical_name).case_insensitive}
 
   end
@@ -16,8 +16,7 @@ RSpec.describe Chemical, type: :model do
   describe 'associations' do
     it {is_expected.to have_many :items}
     it {is_expected.to have_one :safety_precaution}
-    it {is_expected.to belong_to :category}
-    it {should belong_to(:category)}
+
   end
 
   describe 'database_columns' do
