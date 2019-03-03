@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CasNumberValidator < ActiveModel::Validator
   attr_reader :record
   attr_accessor :errors
@@ -15,16 +17,15 @@ class CasNumberValidator < ActiveModel::Validator
   private
 
   def has_proper_format?
-    errors << "Enter properly formatter CAS" unless record.cas_number&.match(/[0-9]{2,7}-[0-9]{2}-[0-9]/)
+    errors << 'Enter properly formatter CAS' unless record.cas_number&.match(/[0-9]{2,7}-[0-9]{2}-[0-9]/)
   end
 
   def check_digit_evaluate?
-
     check_digit = record.cas_number[-1, 1].to_i
     sum = 0
     record.cas_number.to_s.reverse.scan(/[0-9]/).each_with_index do |digit, i|
       sum = sum + digit.to_i * i
     end
-    errors << "CAS is invalid enter the proper CAS" unless check_digit == sum.remainder(10)
+    errors << 'CAS is invalid enter the proper CAS' unless check_digit == sum.remainder(10)
   end
 end
