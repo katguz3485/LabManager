@@ -13,6 +13,8 @@ require 'faker'
 require 'devise'
 require 'database_cleaner'
 require 'shoulda-matchers'
+require 'simplecov'
+SimpleCov.start 'rails'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
