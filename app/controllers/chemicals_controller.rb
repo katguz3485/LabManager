@@ -32,8 +32,8 @@ class ChemicalsController < ApplicationController
       skip_validation
       @chemical.save
 
-      #response is fragile on invalid cas so cas validation should be performed before triggering service but
-      # I have no idea how to do this?
+      #response is fragile on invalid cas => cas validation should be performed before triggering service ?
+
 
       redirect_to chemicals_path, notice: I18n.t('shared.created', resource: 'Chemical')
     else
