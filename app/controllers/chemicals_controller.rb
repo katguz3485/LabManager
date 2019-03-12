@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 
 class ChemicalsController < ApplicationController
   before_action :authenticate_user!
@@ -23,7 +22,19 @@ class ChemicalsController < ApplicationController
   def create
     @chemical = @category.chemicals.build(chemical_params)
     @chemical.category = Category.first
-    if @chemical.save
+    if @chemical.cas_number.present?
+      cid = ChemicalServices::PubChemServiceCid.new(cas: @chemical.cas_number).call
+      @table = ChemicalServices::PubChemServiceProperty.new.call(cid)
+      @chemical.chemical_name = @table[:IUPACName]
+      @chemical.molecular_weight = @table[:MolecularWeight]
+      @chemical.canonical_smiles = @table[:CanonicalSMILES]
+      @chemical.inchi_key = @table[:InChIKey]
+      skip_validation
+      @chemical.save
+
+      #response is fragile on invalid cas so cas validation should be performed before triggering service but
+      # I have no idea how to do this?
+
       redirect_to chemicals_path, notice: I18n.t('shared.created', resource: 'Chemical')
     else
       flash.now.alert = I18n.t('shared.error_create')
@@ -31,13 +42,13 @@ class ChemicalsController < ApplicationController
     end
   end
 
-  def search
-    search_chemical_cas = params['cas_search']
-    cid_number = ChemicalServices::PubChemService.cas_to_cid(search_chemical_cas)
-    @property = ChemicalServices::PubChemService.find_properties(cid_number)
+
+  def skip_validation
+     @chemical.skip_mw_formula_validation = true
   end
 
-  def edit; end
+  def edit;
+  end
 
   def update
     if @chemical.update(chemical_params)
