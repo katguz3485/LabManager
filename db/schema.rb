@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_17_193031) do
+ActiveRecord::Schema.define(version: 2019_03_15_193334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2019_02_17_193031) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.bigint "category_id"
+    t.string "picture_url", default: "", null: false
     t.index ["category_id"], name: "index_chemicals_on_category_id"
   end
 

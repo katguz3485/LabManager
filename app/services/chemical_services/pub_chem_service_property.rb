@@ -4,14 +4,17 @@ module ChemicalServices
 
     base_uri 'https://pubchem.ncbi.nlm.nih.gov/rest/pug'
 
-    attr_accessor :table, :cas
+    attr_accessor :table, :chemical
 
     def initialize
       @table = table
+      @chemical = chemical
+
     end
 
-    def call(cid)
+    def call(cid, chemical)
       find_properties(cid)
+      assign_properties(chemical)
     end
 
     private
@@ -23,36 +26,17 @@ module ChemicalServices
       else
         raise response.response
       end
-      JSON.parse(property.gsub(/:([a-zA-z]+)/, '"\\1"').gsub('=>', ': ')).symbolize_keys
-
+      @table = JSON.parse(property.gsub(/:([a-zA-z]+)/, '"\\1"').gsub('=>', ': ')).symbolize_keys
     end
 
 
-    def show_molecular_weight
-      table[:MolecularWeight]
+    def assign_properties(chemical)
+      chemical.chemical_name = @table[:IUPACName]
+      chemical.molecular_weight = @table[:MolecularWeight]
+      chemical.canonical_smiles = @table[:CanonicalSMILES]
+      chemical.inchi_key = @table[:InChIKey]
     end
-
-    def show_iupac_name
-      table[:IUPACName]
-    end
-
-    def show_molecular_formula
-      table[:MolecularFormula]
-    end
-
-    def show_in_chi_key
-     table[:InChIKey]
-    end
-
-    def show_canonical_smiles
-      table[:CanonicalSMILES]
-    end
-
-
-
-
   end
-
 end
 
 

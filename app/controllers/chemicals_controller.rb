@@ -1,4 +1,3 @@
-
 class ChemicalsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_category, only: [:new, :create, :show, :edit, :update, :delete]
@@ -24,16 +23,11 @@ class ChemicalsController < ApplicationController
     @chemical.category = Category.first
     if @chemical.cas_number.present?
       cid = ChemicalServices::PubChemServiceCid.new(cas: @chemical.cas_number).call
-      @table = ChemicalServices::PubChemServiceProperty.new.call(cid)
-      @chemical.chemical_name = @table[:IUPACName]
-      @chemical.molecular_weight = @table[:MolecularWeight]
-      @chemical.canonical_smiles = @table[:CanonicalSMILES]
-      @chemical.inchi_key = @table[:InChIKey]
+      ChemicalServices::PubChemServiceProperty.new.call(cid, @chemical)
       skip_validation
       @chemical.save
 
       #response is fragile on invalid cas => cas validation should be performed before triggering service ?
-
 
       redirect_to chemicals_path, notice: I18n.t('shared.created', resource: 'Chemical')
     else
@@ -42,10 +36,10 @@ class ChemicalsController < ApplicationController
     end
   end
 
-
   def skip_validation
-     @chemical.skip_mw_formula_validation = true
+    @chemical.skip_mw_formula_validation = true
   end
+
 
   def edit;
   end
