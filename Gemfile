@@ -55,10 +55,10 @@ group :development do
   gem 'better_errors'
   gem 'guard-rubocop', require: false
   gem 'listen'
+  gem 'simplecov'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
-  gem 'simplecov'
 
 
 end

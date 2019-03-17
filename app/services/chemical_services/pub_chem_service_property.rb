@@ -35,6 +35,7 @@ module ChemicalServices
       chemical.molecular_weight = @table[:MolecularWeight]
       chemical.canonical_smiles = @table[:CanonicalSMILES]
       chemical.inchi_key = @table[:InChIKey]
+
     end
   end
 end

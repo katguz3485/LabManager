@@ -10,6 +10,8 @@
         %li.nav-item
           = link_to t('navbar.categories'), categories_path
         %li.nav-item
+          = link_to t('navbar.categories'), new_chemical_path
+        %li.nav-item
           = link_to t('navbar.safety_precautions'), safety_precautions_path
       %ul.nav.navbar-nav.ml-auto
         - if user_signed_in?

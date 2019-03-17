@@ -15,29 +15,28 @@ class ChemicalsController < ApplicationController
   end
 
   def new
-    @chemical = @category.chemicals.build
+    @chemical = Chemical.new
+    @categories = Category.all.map {|c| [c.category_name, c.id]}
+
   end
 
   def create
-    @chemical = @category.chemicals.build(chemical_params)
-    @chemical.category = Category.first
+    @chemical = Chemical.new(chemical_params)
     if @chemical.cas_number.present?
+
       cid = ChemicalServices::PubChemServiceCid.new(cas: @chemical.cas_number).call
       ChemicalServices::PubChemServiceProperty.new.call(cid, @chemical)
-      skip_validation
+      binding.pry
       @chemical.save
-
+      # (@category.chemicals << @chemical) && @chemical.save
       #response is fragile on invalid cas => cas validation should be performed before triggering service ?
-
       redirect_to chemicals_path, notice: I18n.t('shared.created', resource: 'Chemical')
+
     else
+
       flash.now.alert = I18n.t('shared.error_create')
       render :new
     end
-  end
-
-  def skip_validation
-    @chemical.skip_mw_formula_validation = true
   end
 
 
@@ -76,6 +75,6 @@ class ChemicalsController < ApplicationController
                                      :canonical_smiles,
                                      :inchi_key,
                                      :formula_picture,
-                                     :category_id, :id)
+                                     :category_id)
   end
 end

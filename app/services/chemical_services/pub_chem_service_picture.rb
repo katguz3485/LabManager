@@ -25,27 +25,11 @@ module ChemicalServices
       else
         raise response.response
       end
-     JSON.parse(picture)
+      JSON.parse(picture)
     end
 
+  end
 
-
-
-    end
-
-    #
-    # def set_random_picture(alpaca)
-    #   response = JSON.parse(GetAlpacaPictures.new.call)
-    #   if response.nil?
-    #     # If response is nil (HTTP error), return nil, so the model validation won't pass
-    #     return nil
-    #   else
-    #     items = response['items']
-    #     alpaca.picture_url = items.sample['link']
-    #   end
-    #
-    #
-    # end
 
 end
 
