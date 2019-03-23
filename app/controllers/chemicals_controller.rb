@@ -17,13 +17,16 @@ class ChemicalsController < ApplicationController
   end
 
   def new
-    @chemical = @category.chemicals.build
+    @chemical = Chemical.new
+    @categories = Category.all.map {|c| [c.category_name, c.id]}
   end
 
   def create
-    @chemical = @category.chemicals.build(chemical_params)
-    @chemical.category = Category.first
-    if @chemical.save
+    @chemical = Chemical.new(chemical_params)
+    if @chemical.cas_number.present?
+      cid = ChemicalServices::PubChemServiceCid.new(cas: @chemical.cas_number).call
+      ChemicalServices::PubChemServiceProperty.new.call(cid, @chemical)
+      ChemicalServices::PubChemServicePicture.new(cid: cid).call(@chemical)
       redirect_to chemicals_path, notice: I18n.t('shared.created', resource: 'Chemical')
     else
       flash.now.alert = I18n.t('shared.error_create')
@@ -31,13 +34,8 @@ class ChemicalsController < ApplicationController
     end
   end
 
-  def search
-    search_chemical_cas = params['cas_search']
-    cid_number = ChemicalServices::PubChemService.cas_to_cid(search_chemical_cas)
-    @property = ChemicalServices::PubChemService.find_properties(cid_number)
+  def edit;
   end
-
-  def edit; end
 
   def update
     if @chemical.update(chemical_params)
@@ -71,6 +69,8 @@ class ChemicalsController < ApplicationController
                                      :canonical_smiles,
                                      :inchi_key,
                                      :formula_picture,
-                                     :category_id, :id)
+                                     :picture_url,
+                                     :cid,
+                                     :category_id)
   end
 end

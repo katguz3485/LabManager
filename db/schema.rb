@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_17_193031) do
+ActiveRecord::Schema.define(version: 2019_03_21_212442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,15 +26,17 @@ ActiveRecord::Schema.define(version: 2019_02_17_193031) do
   create_table "chemicals", force: :cascade do |t|
     t.string "chemical_name", null: false
     t.string "formula", null: false
-    t.float "molecular_weight"
-    t.float "density"
-    t.string "cas_number"
-    t.string "canonical_smiles"
-    t.string "inchi_key"
-    t.string "formula_picture"
+    t.float "molecular_weight", null: false
+    t.float "density", default: 0.0, null: false
+    t.string "cas_number", default: "", null: false
+    t.string "canonical_smiles", default: "", null: false
+    t.string "inchi_key", default: "", null: false
+    t.string "formula_picture", default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
     t.bigint "category_id"
+    t.string "picture_url", default: "", null: false
+    t.integer "cid", default: 0, null: false
     t.index ["category_id"], name: "index_chemicals_on_category_id"
   end
 

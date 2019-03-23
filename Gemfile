@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 ruby '2.6.1'
 
 gem 'aws-sdk'
+gem 'binding_of_caller'
 gem 'bootsnap', require: false
 gem 'bootstrap'
 gem 'bootstrap4-kaminari-views'
@@ -54,12 +55,10 @@ group :development do
   gem 'better_errors'
   gem 'guard-rubocop', require: false
   gem 'listen'
+  gem 'simplecov'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
-  gem 'simplecov'
-
-
 end
 
 group :test do
