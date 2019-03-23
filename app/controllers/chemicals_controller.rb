@@ -26,7 +26,6 @@ class ChemicalsController < ApplicationController
 
       cid = ChemicalServices::PubChemServiceCid.new(cas: @chemical.cas_number).call
       ChemicalServices::PubChemServiceProperty.new.call(cid, @chemical)
-      binding.pry
       @chemical.save
       # (@category.chemicals << @chemical) && @chemical.save
       #response is fragile on invalid cas => cas validation should be performed before triggering service ?
