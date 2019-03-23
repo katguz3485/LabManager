@@ -6,7 +6,6 @@ RSpec.describe Chemical, type: :model do
   describe 'validations' do
     subject { FactoryBot.build(:chemical) }
 
-    it { should validate_presence_of :formula }
     it { should validate_presence_of :molecular_weight }
     it { should validate_uniqueness_of(:chemical_name).case_insensitive }
   end

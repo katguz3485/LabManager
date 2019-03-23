@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'json'
 
 module ChemicalServices
@@ -27,10 +29,5 @@ module ChemicalServices
       end
       JSON.parse(picture)
     end
-
   end
-
-
 end
-
-

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ChemicalServices
   class PubChemServiceCid
     include HTTParty
@@ -25,7 +27,5 @@ module ChemicalServices
       end
       cid = result.join('')
     end
-
-
   end
 end
