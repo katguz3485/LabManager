@@ -5,13 +5,6 @@ class ChemicalDecorator < BaseDecorator
   decorates_association :safety_precaution
   include Draper::LazyHelpers
 
-  #
-  #   def initialize(object, options = {})
-  #     @details = PubChemService.new(object).cas_to_cid
-  #     @property = PubChemService.new(object).find_properties(@details)
-  #
-  #     super
-  #   end
 
   def unit_of_measurement_adder(resource, unit)
     resource.concat(' ', unit)
