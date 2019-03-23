@@ -24,6 +24,7 @@ module ChemicalServices
         result = response['IdentifierList']['CID']
       else
         raise response.response
+
       end
       cid = result.join('')
     end
