@@ -1,0 +1,16 @@
+=> [32m#<Logger:0x00007feb5423d150[0m
+ @default_formatter[32m=[0m[32m#<Logger::Formatter:0x00007feb5423d100[0m @datetime_format[32m=[0m[1;36mnil[0m[32m>[0m,
+ @formatter[32m=[0m[1;36mnil[0m,
+ @level[32m=[0m[1;34m0[0m,
+ @logdev[32m=[0m
+  [32m#<Logger::LogDevice:0x00007feb5423d0b0[0m
+   @dev[32m=[0m[32m#<IO:<STDOUT>>[0m,
+   @filename[32m=[0m[1;36mnil[0m,
+   @mon_count[32m=[0m[1;34m0[0m,
+   @mon_mutex[32m=[0m[32m#<Thread::Mutex:0x00007feb5423d060[0m[32m>[0m,
+   @mon_mutex_owner_object_id[32m=[0m[1;34m70324352837720[0m,
+   @mon_owner[32m=[0m[1;36mnil[0m,
+   @shift_age[32m=[0m[1;36mnil[0m,
+   @shift_period_suffix[32m=[0m[1;36mnil[0m,
+   @shift_size[32m=[0m[1;36mnil[0m[32m>[0m,
+ @progname[32m=[0m[1;36mnil[0m[32m>[0m
