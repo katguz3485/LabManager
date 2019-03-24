@@ -2,7 +2,7 @@
 
 class SafetyPrecautionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_chemical, only: [:create, :update, :destroy]
+  before_action :set_chemical, only: [:create, :show, :edit, :update, :destroy]
   before_action :set_safety_precaution, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -48,7 +48,7 @@ class SafetyPrecautionsController < ApplicationController
 
   def set_chemical
     @chemical ||= Chemical.find(params[:chemical_id])
-    binding.pry
+
   end
 
   def set_safety_precaution

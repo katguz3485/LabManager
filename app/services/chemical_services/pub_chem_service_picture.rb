@@ -1,4 +1,3 @@
-
 require 'open-uri'
 
 module ChemicalServices
@@ -17,7 +16,6 @@ module ChemicalServices
 
     def picture_open(chemical)
       # https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/2244/PNG
-      #
       picture_url = URL + "/compound/cid/#{@cid}/PNG"
 
       begin

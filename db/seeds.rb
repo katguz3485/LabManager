@@ -62,7 +62,6 @@ chemicals_list =
             category_id: Faker::Number.between(1, 33),
             picture_url: "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/#{ChemicalServices::PubChemServiceCid.new(cas: "65-85-0").call}/PNG"
 
-
         },
         {
             chemical_name: "Acetic anhydride",

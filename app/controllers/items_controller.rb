@@ -3,7 +3,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_chemical
-  before_action :set_category, only: [:new, :create, :show, :edit, :update, :delete]
+  before_action :set_category, only: [:create, :edit, :update, :delete]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def show
@@ -24,7 +24,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit;
+  end
 
   def update
     if @item.update(item_params)
