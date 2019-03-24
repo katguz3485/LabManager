@@ -52,7 +52,12 @@ class SafetyPrecautionsController < ApplicationController
 
   def set_safety_precaution
     @safety_precaution = SafetyPrecaution.find(params[:id])
+    binding.pry
   end
+
+
+
+
 
   def safety_precaution_params
     params.require(:safety_precaution).permit(:sds_file, :name_from_sds, :pictogram,
