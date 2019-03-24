@@ -4,6 +4,6 @@ class CategoryDecorator < Draper::Decorator
   delegate_all
 
   def titleize_category_name
-    category.present? ? category.category_name : '-'
+    object.present? ? object.category_name : '-'
   end
 end

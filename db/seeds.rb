@@ -31,20 +31,22 @@ end
 
 Rails.logger.info "#{Category.all.count} categories created "
 
-chemical_names_list = ["Sodium cyanide", "Potassium cyanide", "Butyric acid", "Pentanoic acid", "Methanol", "Ethanol",
-                       "Acetic acid", "Acetic anhydride", "Formic acid"]
+
+
 
 chemicals_list =
     [
-        {chemical_name: "Sodium cyanide",
+        {chemical_name: "acetic acid",
          formula: 'C7H6O2',
          molecular_weight: 122.12,
          density: 0,
          cas_number: '65-85-0',
+         cid: ChemicalServices::PubChemServiceCid.new(cas: "64-19-7").call,
          canonical_smiles: 'C1=CC=C(C=C1)C(=O)O',
          inchi_key: 'WPYMKLBDIGXBTP-PTQBSOBMSA-N',
-         formula_picture: Faker::Avatar.image("benzoic_acid", "50x50"),
-         category_id: Faker::Number.between(1, 33)
+         formula_picture: Faker::Avatar.image( "50x50"),
+         category_id: Faker::Number.between(1, 33),
+         picture_url: "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/#{ChemicalServices::PubChemServiceCid.new(cas: "64-19-7").call}/PNG",
         },
 
         {
@@ -53,28 +55,37 @@ chemicals_list =
             molecular_weight: 160.216,
             density: 0,
             cas_number: '61-54-1',
+            cid: ChemicalServices::PubChemServiceCid.new(cas: "61-54-1").call,
             canonical_smiles: 'C1=CC=C2C(=C1)C(=CN2)CCN',
             inchi_key: 'WPYMKLBDIGXBTP-PTQBSOBMSA-N',
-            formula_picture: Faker::Avatar.image("tryptamine", "50x50"),
-            category_id: Faker::Number.between(1, 33)
+            formula_picture: Faker::Avatar.image("50x50"),
+            category_id: Faker::Number.between(1, 33),
+            picture_url: "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/#{ChemicalServices::PubChemServiceCid.new(cas: "65-85-0").call}/PNG"
 
         },
         {
             chemical_name: "Acetic anhydride",
-            formula: 'OsO4',
+            cas_number: '65-85-0',
+            cid: ChemicalServices::PubChemServiceCid.new(cas: "65-85-0").call,
+            formula: 'Ac2O',
             molecular_weight: 254.226,
             density: 0,
-            cas_number: '65-85-0',
             canonical_smiles: 'O=[Os](=O)(=O)=O',
             inchi_key: 'WPYMKLBDIGXBTP-PTQBSOBMSA-N',
-            formula_picture: Faker::Avatar.image("osmium tetroxide", "50x50"),
-            category_id: Faker::Number.between(1, 33)
+            formula_picture: Faker::Avatar.image("50x50"),
+            category_id: Faker::Number.between(1, 33),
+            picture_url: "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/#{ChemicalServices::PubChemServiceCid.new(cas: "65-85-0").call}/PNG"
+
+
         }
     ]
 
 
+
 chemicals_list.each do |chemical|
-  Chemical.create!(chemical)
+  Chemical.create!(chemical_name: chemical[:chemical_name], cas_number: chemical[:cas_number], cid: chemical[:cid], formula: chemical[:formula],
+                   molecular_weight: chemical[:molecular_weight], density: chemical[:density], canonical_smiles: chemical[:canonical_smiles],
+                   inchi_key: chemical[:inchi_key], category_id: chemical[:category_id], picture_url: chemical[:picture_url])
 end
 
 Rails.logger.info "#{Chemical.all.count} chemicals created "

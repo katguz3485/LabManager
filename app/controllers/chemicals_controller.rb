@@ -18,7 +18,7 @@ class ChemicalsController < ApplicationController
 
   def new
     @chemical = Chemical.new
-    @categories = Category.all.map {|c| [c.category_name, c.id]}
+    @categories = Category.all.map { |c| [c.category_name, c.id] }
   end
 
   def create
@@ -26,6 +26,7 @@ class ChemicalsController < ApplicationController
     if @chemical.cas_number.present?
       cid = ChemicalServices::PubChemServiceCid.new(cas: @chemical.cas_number).call
       ChemicalServices::PubChemServiceProperty.new.call(cid, @chemical)
+      binding.pry
       ChemicalServices::PubChemServicePicture.new(cid: cid).call(@chemical)
       redirect_to chemicals_path, notice: I18n.t('shared.created', resource: 'Chemical')
     else
@@ -34,8 +35,7 @@ class ChemicalsController < ApplicationController
     end
   end
 
-  def edit;
-  end
+  def edit; end
 
   def update
     if @chemical.update(chemical_params)

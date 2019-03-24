@@ -5,7 +5,6 @@ class ChemicalDecorator < BaseDecorator
   decorates_association :safety_precaution
   include Draper::LazyHelpers
 
-
   def unit_of_measurement_adder(resource, unit)
     resource.concat(' ', unit)
   end
@@ -21,7 +20,7 @@ class ChemicalDecorator < BaseDecorator
   end
 
   def titleize_chemical_name
-    chemical.present? ? chemical.chemical_name : '-'
+    object.present? ? object.chemical_name : '-'
   end
 
   def show_formula_picture
@@ -29,7 +28,7 @@ class ChemicalDecorator < BaseDecorator
   end
 
   def show_picture_from_url
-    chemical.picture_url.present? ? chemical.picture_url : Faker::LoremPixel.image('50x60', false, 'sports')
+    chemical.picture_url.presence || Faker::LoremPixel.image('50x60', false, 'sports')
   end
 
   def download_picture

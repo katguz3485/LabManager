@@ -4,13 +4,13 @@
   .col-md-8
   = simple_form_for [@category, @chemical], html: { multipart: true} do |f|
     = f.input :cas_number
+      = f.association :category, label_method: :category_name, include_blank: false, item_wrapper_class: "style_item", prompt: 'Choose a category'
+    .row
+      = link_to t('shared.add_new_category'), new_category_path, class: 'btn btn-outline-success'
     = f.input :chemical_name
     = f.input :formula
     = f.input :molecular_weight
     = f.input :density
-    = f.association :category, label_method: :category_name, include_blank: false, item_wrapper_class: "style_item", prompt: 'Choose a category'
-    .row
-      = link_to t('shared.add_new_category'), new_category_path, class: 'btn btn-outline-success'
     = f.input :canonical_smiles
     = f.input :formula_picture, as: :file
     = f.button :submit, class: 'btn btn-outline-primary'

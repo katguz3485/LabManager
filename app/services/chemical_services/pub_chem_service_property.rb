@@ -17,6 +17,10 @@ module ChemicalServices
       update_chemical(chemical)
     end
 
+    def properties_table(cid)
+      find_properties(cid)
+    end
+
     private
 
     def find_properties(cid)
@@ -33,5 +37,6 @@ module ChemicalServices
     def update_chemical(chemical)
       chemical.update(chemical_name: @table[:IUPACName], cid: @table[:CID], canonical_smiles: @table[:CanonicalSMILES], inchi_key: @table[:InChIKey], molecular_weight: @table[:MolecularWeight], formula: @table[:MolecularFormula])
     end
+
   end
 end

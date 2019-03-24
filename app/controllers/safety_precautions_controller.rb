@@ -2,7 +2,7 @@
 
 class SafetyPrecautionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_chemical, only: [:new, :show, :edit, :update, :destroy]
+  before_action :set_chemical, only: [:create, :show, :edit, :update, :destroy]
   before_action :set_safety_precaution, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -47,17 +47,19 @@ class SafetyPrecautionsController < ApplicationController
   private
 
   def set_chemical
-    @chemical = Chemical.find(params[:chemical_id])
+    @chemical ||= Chemical.find(params[:chemical_id])
+
   end
 
   def set_safety_precaution
     @safety_precaution = SafetyPrecaution.find(params[:id])
   end
 
+
   def safety_precaution_params
     params.require(:safety_precaution).permit(:sds_file, :name_from_sds, :pictogram,
                                               :storage_temperature_range, :signal_word,
                                               :h_codes, :h_statements, :p_codes, :p_statements,
-                                              :adr_number, :adr_class, :adr_group, :chemical_id, :id)
+                                              :adr_number, :adr_class, :adr_group, :chemical_id)
   end
 end
