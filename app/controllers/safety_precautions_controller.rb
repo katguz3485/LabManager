@@ -52,11 +52,7 @@ class SafetyPrecautionsController < ApplicationController
 
   def set_safety_precaution
     @safety_precaution = SafetyPrecaution.find(params[:id])
-    binding.pry
   end
-
-
-
 
 
   def safety_precaution_params

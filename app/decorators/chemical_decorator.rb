@@ -20,7 +20,7 @@ class ChemicalDecorator < BaseDecorator
   end
 
   def titleize_chemical_name
-    chemical.present? ? chemical.chemical_name : '-'
+    object.present? ? object.chemical_name : '-'
   end
 
   def show_formula_picture

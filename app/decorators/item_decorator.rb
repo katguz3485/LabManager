@@ -4,14 +4,14 @@ class ItemDecorator < Draper::Decorator
   delegate_all
 
   def item_place
-    item.present? ? "#{item.room}-#{item.shelf}-#{item.number}" : '-'
+    object.present? ? "#{object.room}-#{object.shelf}-#{object.number}" : '-'
   end
 
   def amount_formatter
-    item.present? ? "#{item.amount} g/(mL)" : '-'
+    object.present? ? "#{object.amount} g/(mL)" : '-'
   end
 
   def item_stock
-    "#{item.quantity} x #{amount_formatter}"
+    "#{object.quantity} x #{amount_formatter}"
   end
 end
