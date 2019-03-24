@@ -18,7 +18,7 @@ class ChemicalsController < ApplicationController
 
   def new
     @chemical = Chemical.new
-    @categories = Category.all.map {|c| [c.category_name, c.id]}
+    @categories = Category.all.map { |c| [c.category_name, c.id] }
   end
 
   def create
@@ -34,8 +34,7 @@ class ChemicalsController < ApplicationController
     end
   end
 
-  def edit;
-  end
+  def edit; end
 
   def update
     if @chemical.update(chemical_params)

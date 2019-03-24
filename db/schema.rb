@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_21_212442) do
+ActiveRecord::Schema.define(version: 2019_03_24_130916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,34 +41,34 @@ ActiveRecord::Schema.define(version: 2019_03_21_212442) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string "item_owner"
-    t.integer "quantity"
-    t.float "amount"
-    t.string "comment"
-    t.string "daily_usage"
-    t.boolean "present_in_respiratory_zone", default: false
+    t.string "item_owner", default: "", null: false
+    t.integer "quantity", null: false
+    t.float "amount", default: 0.0, null: false
+    t.string "comment", default: "", null: false
+    t.string "daily_usage", default: "", null: false
+    t.boolean "present_in_respiratory_zone", default: false, null: false
     t.bigint "chemical_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "room"
-    t.string "shelf"
-    t.string "number"
+    t.string "room", default: "", null: false
+    t.string "shelf", default: "", null: false
+    t.string "number", default: "", null: false
     t.index ["chemical_id"], name: "index_items_on_chemical_id"
   end
 
   create_table "safety_precautions", force: :cascade do |t|
-    t.string "sds_file"
-    t.string "name_from_sds"
-    t.string "pictogram"
-    t.string "storage_temperature_range"
-    t.string "signal_word"
-    t.string "h_codes"
-    t.string "h_statements"
-    t.string "p_codes"
-    t.string "p_statements"
-    t.string "adr_number"
-    t.string "adr_class"
-    t.string "adr_group"
+    t.string "sds_file", default: "", null: false
+    t.string "name_from_sds", default: "", null: false
+    t.string "pictogram", default: "", null: false
+    t.string "storage_temperature_range", default: "", null: false
+    t.string "signal_word", default: "", null: false
+    t.string "h_codes", default: "", null: false
+    t.string "h_statements", default: "", null: false
+    t.string "p_codes", default: "", null: false
+    t.string "p_statements", default: "", null: false
+    t.string "adr_number", default: "", null: false
+    t.string "adr_class", default: "", null: false
+    t.string "adr_group", default: "", null: false
     t.bigint "chemical_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
