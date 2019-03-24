@@ -3,6 +3,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_chemical
+  before_action :set_category, only: [:new, :create, :show, :edit, :update, :delete]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def show
@@ -16,7 +17,7 @@ class ItemsController < ApplicationController
   def create
     @item = @chemical.items.build(item_params)
     if @item.save
-      redirect_to chemicals_path, notice: I18n.t('shared.created', resource: 'Items')
+      redirect_to category_chemical_path(@chemical.category_id, @chemical), notice: I18n.t('shared.created', resource: 'Items')
     else
       flash.now.alert = I18n.t('shared.error_create')
       render :new
@@ -26,8 +27,8 @@ class ItemsController < ApplicationController
   def edit; end
 
   def update
-    if @item.update(safety_precaution_params)
-      redirect_to chemicals_path, notice: t('shared.updated', resource: 'Item')
+    if @item.update(item_params)
+      redirect_to category_chemical_path(@chemical.category_id, @chemical), notice: t('shared.updated', resource: 'Item')
     else
       render :edit
     end
@@ -35,13 +36,17 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to chemicals_path, notice: I18n.t('shared.deleted', resource: 'Item')
+    redirect_to category_chemical_path(@chemical.category_id, @chemical), notice: I18n.t('shared.deleted', resource: 'Item')
   end
 
   private
 
   def set_chemical
     @chemical = Chemical.find(params[:chemical_id])
+  end
+
+  def set_category
+    @category = Category.find(params[:category_id])
   end
 
   def set_item
