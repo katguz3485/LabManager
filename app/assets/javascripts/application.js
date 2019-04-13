@@ -3,5 +3,7 @@
 //= require turbolinks
 //= require jquery3
 //= require popper
+//= require rails.validations
+//= require rails.validations.simple_form.bootstrap4
 //= require bootstrap
 //= require_tree .

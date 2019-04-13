@@ -14,5 +14,6 @@ deploy:
   api_key:
     secure: "CN9A/rGsnIrkSULQoeevCqk47TmHD1PA1VrwA4LqhNSHSaLye1+WvhG/Vd4oRfzXDRhJT8xmL0aUk/wp9PDhu6VebFO7gimNE+CpHF3GW9AF+4UOgg5GQsGULe6dBlLdzuWcJcRt9hPALzZlRqoKtrApQA0PazwHZnGjtXWKlnSz/PpU/sQkQ1lTCU6+6r5zbNrmzgfniY8MGdnviIuQZJohAkYWFwBIGH9SdBcvh+ZUmOyJ8InzZBuKrlJT75KI/cZKOaXvDe6NpfuOTOs/0SwGNUFws8jdrfsyiqv+68j2K1tge8d0dubD15n0pWt+7n1GTvvWmdxp1Y32rz0izQo7Ko1C1dQMY40EfNYACPyuzeVqobQ2rt+TEu3kNA4LAqxuhUn8NVIlSYxWxGZNwOe4pRyJZUvNyngNpAvHKWkWPRY56uF9bdCfYJAk5Ah/OiCgnNWPnhEAZueBWYG49OBvK8r29l8jtSc9Q22rfITYnrUimBLZWfy5dRP6HsGcIT5vkJ8lCUDOF3+9g+SOEp39rVm+DxX+ucXG/4fRHjDe2KPnIytCg14aNXusxQgH0tb0mIoswYp8zgPXbhNVLZSyIhHKcFNfiE6jKtoPssn5rZuQPQzqengYS5O2JMlmcOHTLyLwkztB/Emyigjv15iMqVZZkE9Z3RmV3vIWKHo="
   run: rake db:migrate
-  app: LabManager
-  on: katguz3485/LabManager
+  app: lab-manager-kg
+  on:
+    repo: katguz3485/LabManager

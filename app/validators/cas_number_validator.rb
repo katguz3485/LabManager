@@ -11,7 +11,7 @@ class CasNumberValidator < ActiveModel::Validator
     has_proper_format?
     check_digit_evaluate?
 
-    record.errors.add(:cas_number, errors) if errors.any?
+    record.errors.add(attr_name, :cas_number, errors) if errors.any?
   end
 
   private
@@ -27,5 +27,12 @@ class CasNumberValidator < ActiveModel::Validator
       sum = sum + digit.to_i * i
     end
     errors << 'CAS is invalid enter the proper CAS' unless check_digit == sum.remainder(10)
+  end
+end
+
+
+module ActiveModel::Validations::HelperMethods
+  def validates_cas_number(*attr_names)
+    validates_with CasNumberValidator, _merge_attributes(attr_names)
   end
 end

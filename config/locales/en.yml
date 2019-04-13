@@ -1,4 +1,7 @@
 en:
+  errors:
+    messages:
+      cas_number_format: "Please provide valid cas number"
   navbar:
     app_name: Lab Manager
     chemicals_search: Search Chemicals

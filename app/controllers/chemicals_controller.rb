@@ -26,7 +26,6 @@ class ChemicalsController < ApplicationController
     if @chemical.cas_number.present?
       cid = ChemicalServices::PubChemServiceCid.new(cas: @chemical.cas_number).call
       ChemicalServices::PubChemServiceProperty.new.call(cid, @chemical)
-      binding.pry
       ChemicalServices::PubChemServicePicture.new(cid: cid).call(@chemical)
       redirect_to chemicals_path, notice: I18n.t('shared.created', resource: 'Chemical')
     else
