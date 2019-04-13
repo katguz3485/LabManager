@@ -11,7 +11,7 @@ class CasNumberValidator < ActiveModel::Validator
     has_proper_format?
     check_digit_evaluate?
 
-    record.errors.add(attr_name, :cas_number, errors) if errors.any?
+    record.errors.add(:cas_number, errors) if errors.any?
   end
 
   private
